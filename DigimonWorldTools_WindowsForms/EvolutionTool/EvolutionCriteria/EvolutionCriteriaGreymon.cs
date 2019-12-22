@@ -2,28 +2,42 @@
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 {
-    public class EvolutionCriteriaGreymon : EvolutionCriteriaBase
+    public class EvolutionCriteriaGreymon : IEvolutionCriteria
     {
-        public EvolutionCriteriaGreymon() : base(
-            evolutionStage: EvolutionStage.Champion
-            , digimonType: DigimonType.Greymon
-            , hp: 0
-            , mp: 0
-            , off: 100
-            , def: 100
-            , speed: 100
-            , brains: 100
-            , isCaremistakesCriteriaAMaximum: true
-            , careMistakes: 1
-            , weight: 30
-            , maxDeviationFromWeightBoundsIncluded: 5
-            , happiness: 0
-            , discipline: 90
-            , isBattlesCriteriaAMaximum: false
-            , battles: 0
-            , tech: 35
-            , precursorDigimonType: null
-        )
-        { }
+        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
+
+        public DigimonType DigimonType => DigimonType.Greymon;
+
+        public int HP => 0;
+
+        public int MP => 0;
+
+        public int Off => 100;
+
+        public int Def => 100;
+
+        public int Speed => 100;
+
+        public int Brains => 100;
+
+        public bool IsCaremistakesCriteriaAMaximum => true;
+
+        public int CareMistakes => 1;
+
+        public int Weight => 30;
+
+        public int MaxDeviationFromWeightBoundsIncluded => 5;
+
+        public int Happiness => 0;
+
+        public int Discipline => 90;
+
+        public bool IsBattlesCriteriaAMaximum => false;
+
+        public int Battles => 0;
+
+        public int Tech => 35;
+
+        public DigimonType? PrecursorDigimonType => null;
     }
 }

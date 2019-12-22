@@ -2,28 +2,42 @@
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 {
-    public class EvolutionCriteriaTyrannomon: EvolutionCriteriaBase
+    public class EvolutionCriteriaTyrannomon: IEvolutionCriteria
     {
-        public EvolutionCriteriaTyrannomon() : base(
-            evolutionStage: EvolutionStage.Champion
-            , digimonType: DigimonType.Tyrannomon
-            , hp: 1000
-            , mp: 0
-            , off: 0
-            , def: 100
-            , speed: 0
-            , brains: 0
-            , isCaremistakesCriteriaAMaximum: true
-            , careMistakes: 5
-            , weight: 30
-            , maxDeviationFromWeightBoundsIncluded: 5
-            , happiness: 0
-            , discipline: 0
-            , isBattlesCriteriaAMaximum: true
-            , battles: 5
-            , tech: 28
-            , precursorDigimonType: DigimonType.Biyomon
-        )
-        { }
+        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
+
+        public DigimonType DigimonType => DigimonType.Tyrannomon;
+
+        public int HP => 1000;
+
+        public int MP => 0;
+
+        public int Off => 0;
+
+        public int Def => 100;
+
+        public int Speed => 0;
+
+        public int Brains => 0;
+
+        public bool IsCaremistakesCriteriaAMaximum => true;
+
+        public int CareMistakes => 5;
+
+        public int Weight => 30;
+
+        public int MaxDeviationFromWeightBoundsIncluded => 5;
+
+        public int Happiness => 0;
+
+        public int Discipline => 0;
+
+        public bool IsBattlesCriteriaAMaximum => true;
+
+        public int Battles => 5;
+
+        public int Tech => 28;
+
+        public DigimonType? PrecursorDigimonType => DigimonType.Biyomon;
     }
 }

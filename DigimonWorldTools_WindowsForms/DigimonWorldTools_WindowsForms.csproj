@@ -69,7 +69,6 @@
     <Compile Include="EvolutionTool\ReferenceValues\Digimon\EvolutionTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaBase.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaBirdramon.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaGreymon.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\IEvolutionCriteriaDigimon.cs" />
