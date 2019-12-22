@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DigimonWorldTools_WindowsForms.EvolutionTool
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool
 {
     public class DigimonStats
     {
-        public DigimonCombatStats DigimonCOmbatStats {get; set; }
+        public DigimonCombatStats DigimonCombatStats {get; set; }
 
         public int CareMistakes { get; set; }
 
