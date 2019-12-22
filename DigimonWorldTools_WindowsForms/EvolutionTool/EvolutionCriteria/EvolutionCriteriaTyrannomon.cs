@@ -8,17 +8,15 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public DigimonType DigimonType => DigimonType.Tyrannomon;
 
-        public int HP => 1000;
-
-        public int MP => 0;
-
-        public int Off => 0;
-
-        public int Def => 100;
-
-        public int Speed => 0;
-
-        public int Brains => 0;
+        public DigimonCombatStats DigimonCombatStats { get; } = new DigimonCombatStats()
+        {
+            HP = 1000
+            , MP = 0
+            , Off = 0
+            , Def = 100
+            , Speed = 0
+            , Brains = 0
+        };
 
         public bool IsCaremistakesCriteriaAMaximum => true;
 

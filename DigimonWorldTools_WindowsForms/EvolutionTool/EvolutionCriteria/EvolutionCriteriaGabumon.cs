@@ -8,17 +8,15 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public DigimonType DigimonType => DigimonType.Gabumon;
 
-        public int HP => 0;
-
-        public int MP => 0;
-
-        public int Off => 0;
-
-        public int Def => 1;
-
-        public int Speed => 1;
-
-        public int Brains => 1;
+        public DigimonCombatStats DigimonCombatStats { get; } = new DigimonCombatStats()
+        {
+            HP = 0
+            , MP = 0
+            , Off = 0
+            , Def = 1
+            , Speed = 0
+            , Brains = 0
+        };
 
         public bool IsCaremistakesCriteriaAMaximum => false;
 

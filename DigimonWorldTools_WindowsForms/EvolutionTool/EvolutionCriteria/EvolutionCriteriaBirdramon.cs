@@ -8,17 +8,15 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public DigimonType DigimonType => DigimonType.Birdramon;
 
-        public int HP => 0;
-
-        public int MP => 0;
-
-        public int Off => 1;
-
-        public int Def => 0;
-
-        public int Speed => 100;
-
-        public int Brains => 0;
+        public DigimonCombatStats DigimonCombatStats { get; } = new DigimonCombatStats()
+        {
+            HP = 0
+            , MP = 0
+            , Off = 0
+            , Def = 0
+            , Speed = 100
+            , Brains = 0
+        };
 
         public bool IsCaremistakesCriteriaAMaximum => false;
 

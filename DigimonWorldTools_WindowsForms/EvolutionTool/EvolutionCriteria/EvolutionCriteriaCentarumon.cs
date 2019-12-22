@@ -8,17 +8,15 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public DigimonType DigimonType => DigimonType.Centarumon;
 
-        public int HP => 0;
-
-        public int MP => 0;
-
-        public int Off => 0;
-
-        public int Def => 0;
-
-        public int Speed => 0;
-
-        public int Brains => 100;
+        public DigimonCombatStats DigimonCombatStats { get; } = new DigimonCombatStats()
+        {
+            HP = 0
+            , MP = 0
+            , Off = 0
+            , Def = 0
+            , Speed = 0
+            , Brains = 100
+        };
 
         public bool IsCaremistakesCriteriaAMaximum => true;
 

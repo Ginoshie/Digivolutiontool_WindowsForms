@@ -9,19 +9,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
         DigimonType DigimonType { get; }
 
         #region Main Criteria
-        #region Stats
-        int HP { get; }
-
-        int MP { get; }
-
-        int Off { get; }
-
-        int Def { get; }
-
-        int Speed { get; }
-
-        int Brains { get; }
-        #endregion
+        DigimonCombatStats DigimonCombatStats { get; }
 
         bool IsCaremistakesCriteriaAMaximum { get; }
 

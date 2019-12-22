@@ -8,6 +8,16 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public DigimonType DigimonType => DigimonType.Agumon;
 
+        public DigimonCombatStats DigimonCombatStats { get; } = new DigimonCombatStats()
+        {
+            HP = 10
+            , MP = 10
+            , Off = 1
+            , Def = 0
+            , Speed = 0
+            , Brains = 0
+        };
+
         public int HP => 10;
 
         public int MP => 10;
