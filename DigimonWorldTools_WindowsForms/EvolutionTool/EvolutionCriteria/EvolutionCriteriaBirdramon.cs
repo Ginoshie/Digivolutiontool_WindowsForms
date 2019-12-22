@@ -2,28 +2,42 @@
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 {
-    public class EvolutionCriteriaBirdramon : EvolutionCriteriaBase
+    public class EvolutionCriteriaBirdramon : IEvolutionCriteria
     {
-        public EvolutionCriteriaBirdramon() : base(
-            evolutionStage: EvolutionStage.Champion
-            ,digimonType: DigimonType.Birdramon
-            , hp: 0
-            , mp: 0
-            , off: 0
-            , def: 0
-            , speed: 100
-            , brains: 0
-            , isCaremistakesCriteriaAMaximum: false
-            , careMistakes: 3
-            , weight: 20
-            , maxDeviationFromWeightBoundsIncluded: 5
-            , happiness: 0
-            , discipline: 0
-            , isBattlesCriteriaAMaximum: false
-            , battles: 0
-            , tech: 35
-            , precursorDigimonType: DigimonType.Biyomon
-        )
-        { }
+        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
+
+        public DigimonType DigimonType => DigimonType.Birdramon;
+
+        public int HP => 0;
+
+        public int MP => 0;
+
+        public int Off => 1;
+
+        public int Def => 0;
+
+        public int Speed => 100;
+
+        public int Brains => 0;
+
+        public bool IsCaremistakesCriteriaAMaximum => false;
+
+        public int CareMistakes => 3;
+
+        public int Weight => 20;
+
+        public int MaxDeviationFromWeightBoundsIncluded => 5;
+
+        public int Happiness => 0;
+
+        public int Discipline => 0;
+
+        public bool IsBattlesCriteriaAMaximum => false;
+
+        public int Battles => 0;
+
+        public int Tech => 35;
+
+        public DigimonType? PrecursorDigimonType => DigimonType.Biyomon;
     }
 }

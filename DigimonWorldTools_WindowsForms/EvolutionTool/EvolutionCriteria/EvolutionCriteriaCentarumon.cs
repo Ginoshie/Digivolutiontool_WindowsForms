@@ -2,28 +2,42 @@
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 {
-    public class EvolutionCriteriaCentarumon : EvolutionCriteriaBase
+    public class EvolutionCriteriaCentarumon : IEvolutionCriteria
     {
-        public EvolutionCriteriaCentarumon() : base(
-            evolutionStage: EvolutionStage.Champion
-            , digimonType: DigimonType.Centarumon
-            , hp: 0
-            , mp: 0
-            , off: 0
-            , def: 0
-            , speed: 0
-            , brains: 100
-            , isCaremistakesCriteriaAMaximum: true
-            , careMistakes: 3
-            , weight: 30
-            , maxDeviationFromWeightBoundsIncluded: 5
-            , happiness: 0
-            , discipline: 60
-            , isBattlesCriteriaAMaximum: false
-            , battles: 0
-            , tech: 28
-            , precursorDigimonType: null
-        )
-        { }
+        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
+
+        public DigimonType DigimonType => DigimonType.Centarumon;
+
+        public int HP => 0;
+
+        public int MP => 0;
+
+        public int Off => 0;
+
+        public int Def => 0;
+
+        public int Speed => 0;
+
+        public int Brains => 100;
+
+        public bool IsCaremistakesCriteriaAMaximum => true;
+
+        public int CareMistakes => 3;
+
+        public int Weight => 30;
+
+        public int MaxDeviationFromWeightBoundsIncluded => 5;
+
+        public int Happiness => 0;
+
+        public int Discipline => 60;
+
+        public bool IsBattlesCriteriaAMaximum => false;
+
+        public int Battles => 0;
+
+        public int Tech => 28;
+
+        public DigimonType? PrecursorDigimonType => null;
     }
 }
