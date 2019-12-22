@@ -58,6 +58,11 @@
   <ItemGroup>
     <Compile Include="EvolutionTool\DigimonCombatStats.cs" />
     <Compile Include="EvolutionTool\DigimonStats.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\BonusCriteria\EvoCriteriaBattles.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\EvoCriteriaDigimon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\MainCriteria\EvoCriteriaCareMistakes.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\MainCriteria\EvoCriteriaCombatStats.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\MainCriteria\EvoCriteriaWeight.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaAgumon.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaGabumon.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaTyrannomon.cs" />

@@ -1,4 +1,6 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.EvoCriteria.BonusCriteria;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.EvoCriteria.MainCriteria;
+using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 {
@@ -8,33 +10,33 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public DigimonType DigimonType => DigimonType.Monochromon;
 
-        public int HP => 1000;
+        public EvoCriteriaCombatStats EvoCriteriaCombatStats { get; } = new EvoCriteriaCombatStats(
+            hp: 1000
+            , mp: 0
+            , off: 0
+            , def: 100
+            , speed: 0
+            , brains: 100
+        );
 
-        public int MP => 0;
+        public EvoCriteriaCareMistakes EvoCriteriaCareMistakes { get; } = new EvoCriteriaCareMistakes(
+            isCareMistakesCriteriaMaximum: true
+            , careMistakes: 3
+        );
 
-        public int Off => 0;
-
-        public int Def => 100;
-
-        public int Speed => 0;
-
-        public int Brains => 100;
-
-        public bool IsCaremistakesCriteriaAMaximum => true;
-
-        public int CareMistakes => 3;
-
-        public int Weight => 40;
-
-        public int MaxDeviationFromWeightBoundsIncluded => 5;
+        public EvoCriteriaWeight EvoCriteriaWeight { get; } = new EvoCriteriaWeight(
+            weight: 40
+            , maxDeviationFromWeightBoundsIncluded: 5
+        );
 
         public int Happiness => 0;
 
         public int Discipline => 0;
 
-        public bool IsBattlesCriteriaAMaximum => true;
-
-        public int Battles => 5;
+        public EvoCriteriaBattles EvoCriteriaBattles { get; } = new EvoCriteriaBattles(
+            isBattlesCriteriaAMaximum: true
+            , battles: 5
+        );
 
         public int Tech => 35;
 
