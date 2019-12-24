@@ -58,24 +58,24 @@
   <ItemGroup>
     <Compile Include="EvolutionTool\DigimonCombatStats.cs" />
     <Compile Include="EvolutionTool\DigimonStats.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\BonusCriteria\EvoCriteriaBattles.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\EvoCriteriaDigimon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\MainCriteria\EvoCriteriaCareMistakes.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\MainCriteria\EvoCriteriaCombatStats.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvoCriteria\MainCriteria\EvoCriteriaWeight.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaAgumon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaGabumon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaTyrannomon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaCentarumon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaMonochromon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\BonusCriteria\EvoCriteriaBattles.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\Class1.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\MainCriteria\EvoCriteriaCareMistakes.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\MainCriteria\EvoCriteriaCombatStats.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\MainCriteria\EvoCriteriaWeight.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Rookie\EvolutionCriteriaAgumon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Rookie\EvolutionCriteriaGabumon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaTyrannomon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaCentarumon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaMonochromon.cs" />
     <Compile Include="EvolutionTool\EvolutionParamsChampionAndUltimate.cs" />
     <Compile Include="EvolutionTool\EvolutionParamsRookie.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\Digimon\Evolutionstage.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\Digimon\EvolutionTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaBirdramon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaGreymon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaBirdramon.cs" />
+    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaGreymon.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\IEvolutionCriteriaDigimon.cs" />
     <Compile Include="EvolutionTool\EvolutionDeterminationFlow.cs" />
     <Compile Include="EvolutionTool\EvolutionDeterminator.cs" />
@@ -118,6 +118,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="EvolutionTool\EvolutionCriteria\Digimon\Fresh\" />
+    <Folder Include="EvolutionTool\EvolutionCriteria\Digimon\InTraining\" />
+    <Folder Include="EvolutionTool\EvolutionCriteria\Digimon\Ultimate\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
