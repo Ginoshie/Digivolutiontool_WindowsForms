@@ -69,9 +69,11 @@
     <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaMonochromon.cs" />
     <Compile Include="EvolutionTool\EvolutionParamsChampionAndUltimate.cs" />
     <Compile Include="EvolutionTool\EvolutionParamsRookie.cs" />
+    <Compile Include="EvolutionTool\EvoToolbox.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\Digimon\Evolutionstage.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\Digimon\EvolutionTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\ReferenceValues\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
+    <Compile Include="EvolutionTool\ReferenceValues\Stats\CombatStats.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaBirdramon.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\EvolutionCriteriaGreymon.cs" />

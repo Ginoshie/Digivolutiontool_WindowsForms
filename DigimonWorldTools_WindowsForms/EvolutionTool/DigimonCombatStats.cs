@@ -1,17 +1,59 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Stats;
+using System.Collections.Generic;
+
+namespace DigimonWorldTools_WindowsForms.EvolutionTool
 {
     public class DigimonCombatStats
     {
-        public int HP { get; set; }
+        private Dictionary<CombatStats, int> dictionary = new Dictionary<CombatStats, int>
+        {
+            {CombatStats.HP, 0 },
+            {CombatStats.MP, 0 },
+            {CombatStats.Off, 0 },
+            {CombatStats.Def, 0 },
+            {CombatStats.Speed, 0 },
+            {CombatStats.Brains, 0 },
+        };
 
-        public int MP { get; set; }
+        public int HP
+        {
+            get => dictionary[CombatStats.HP];
+            set => dictionary[CombatStats.HP] = value;
+        }
 
-        public int Off { get; set; }
+        public int MP
+        {
+            get => dictionary[CombatStats.MP];
+            set => dictionary[CombatStats.MP] = value;
+        }
 
-        public int Def { get; set; }
+        public int Off
+        {
+            get => dictionary[CombatStats.Off];
+            set => dictionary[CombatStats.Off] = value;
+        }
 
-        public int Speed { get; set; }
+        public int Def
+        {
+            get => dictionary[CombatStats.Def];
+            set => dictionary[CombatStats.Def] = value;
+        }
 
-        public int Brains { get; set; }
+        public int Speed
+        {
+            get => dictionary[CombatStats.Speed];
+            set => dictionary[CombatStats.Speed] = value;
+        }
+
+        public int Brains
+        {
+            get => dictionary[CombatStats.Brains];
+            set => dictionary[CombatStats.Brains] = value;
+        }
+
+        public int this[CombatStats combatStats]
+        {
+            get => dictionary[combatStats];
+        }
     }
 }

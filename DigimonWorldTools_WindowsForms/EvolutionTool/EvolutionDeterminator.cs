@@ -26,7 +26,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool
         {
             switch (GetEvolutionStageUserDigimon())
             {
-                case EvolutionStage.Fresh:
+                case EvolutionStage.Baby:
                     return DigimonType.Numemon;
                 case EvolutionStage.InTraining:
                     return DetermineEvolutionToRookieResult();
@@ -119,7 +119,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool
             int CriteriaMetThresholdForEvolution = 3;
 
             #region MainCriteriaCheckCalls
-            if (IsStatCriteriaMet()) { NrOfCriteriaMet++; }
+            if (EvoToolbox.IsCombatStatCriteriaMet(EvolutionCriteria.EvoCriteriaCombatStats, UserDigimon.DigimonCombatStats)) { NrOfCriteriaMet++; }
 
             if (IsCareMistakesCriteriaMet()) { NrOfCriteriaMet++; }
 

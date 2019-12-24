@@ -2,7 +2,7 @@
 {
     public enum EvolutionStage
     {
-        Fresh
+        Baby
         , InTraining
         , Rookie
         , Champion
