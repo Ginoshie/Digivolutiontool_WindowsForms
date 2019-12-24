@@ -59,7 +59,6 @@
     <Compile Include="EvolutionTool\DigimonCombatStats.cs" />
     <Compile Include="EvolutionTool\DigimonStats.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\BonusCriteria\EvoCriteriaBattles.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\Digimon\Champion\Class1.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\MainCriteria\EvoCriteriaCareMistakes.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\MainCriteria\EvoCriteriaCombatStats.cs" />
     <Compile Include="EvolutionTool\EvolutionCriteria\MainCriteria\EvoCriteriaWeight.cs" />
