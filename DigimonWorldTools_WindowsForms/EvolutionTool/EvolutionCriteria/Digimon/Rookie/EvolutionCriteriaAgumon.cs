@@ -2,7 +2,7 @@
 using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.EvoCriteria.MainCriteria;
 using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Digimon.Rookie
 {
     class EvolutionCriteriaAgumon : IEvolutionCriteria
     {

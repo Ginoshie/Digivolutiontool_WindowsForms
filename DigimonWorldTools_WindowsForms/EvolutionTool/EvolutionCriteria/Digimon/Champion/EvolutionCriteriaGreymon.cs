@@ -2,44 +2,44 @@
 using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.EvoCriteria.MainCriteria;
 using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Digimon.Champion
 {
-    class EvolutionCriteriaAgumon : IEvolutionCriteria
+    public class EvolutionCriteriaGreymon : IEvolutionCriteria
     {
-        public EvolutionStage EvolutionStage => EvolutionStage.Rookie;
+        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
 
-        public DigimonType DigimonType => DigimonType.Agumon;
+        public DigimonType DigimonType => DigimonType.Greymon;
 
         public EvoCriteriaCombatStats EvoCriteriaCombatStats { get; } = new EvoCriteriaCombatStats(
-            hp: 10
-            , mp: 10
-            , off: 1
-            , def: 0
-            ,speed: 0
-            , brains: 0
+            hp: 0
+            , mp: 0
+            , off: 100
+            , def: 100
+            , speed: 100
+            , brains: 100
         );
 
         public EvoCriteriaCareMistakes EvoCriteriaCareMistakes { get; } = new EvoCriteriaCareMistakes(
-            isCareMistakesCriteriaMaximum: false
-            , careMistakes: 0
+            isCareMistakesCriteriaMaximum: true
+            , careMistakes: 1
         );
 
         public EvoCriteriaWeight EvoCriteriaWeight { get; } = new EvoCriteriaWeight(
-            weight: 15
+            weight: 30
             , maxDeviationFromWeightBoundsIncluded: 5
         );
 
         public int Happiness => 0;
 
-        public int Discipline => 0;
+        public int Discipline => 90;
 
         public EvoCriteriaBattles EvoCriteriaBattles { get; } = new EvoCriteriaBattles(
             isBattlesCriteriaAMaximum: false
             , battles: 0
         );
 
-        public int Tech => 0;
+        public int Tech => 35;
 
-        public DigimonType? PrecursorDigimonType => DigimonType.Koromon;
+        public DigimonType? PrecursorDigimonType => null;
     }
 }

@@ -2,20 +2,20 @@
 using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.EvoCriteria.MainCriteria;
 using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Digimon.Rookie
 {
-    class EvolutionCriteriaAgumon : IEvolutionCriteria
+    class EvolutionCriteriaGabumon : IEvolutionCriteria
     {
         public EvolutionStage EvolutionStage => EvolutionStage.Rookie;
 
-        public DigimonType DigimonType => DigimonType.Agumon;
+        public DigimonType DigimonType => DigimonType.Gabumon;
 
         public EvoCriteriaCombatStats EvoCriteriaCombatStats { get; } = new EvoCriteriaCombatStats(
-            hp: 10
-            , mp: 10
-            , off: 1
-            , def: 0
-            ,speed: 0
+            hp: 0
+            , mp: 0
+            , off: 0
+            , def: 1
+            , speed: 0
             , brains: 0
         );
 
@@ -35,7 +35,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
 
         public EvoCriteriaBattles EvoCriteriaBattles { get; } = new EvoCriteriaBattles(
             isBattlesCriteriaAMaximum: false
-            , battles: 0
+            , battles: -2
         );
 
         public int Tech => 0;
