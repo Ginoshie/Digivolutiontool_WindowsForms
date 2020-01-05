@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon
 {
     public static class EvolutionTargetsListFactory
     {

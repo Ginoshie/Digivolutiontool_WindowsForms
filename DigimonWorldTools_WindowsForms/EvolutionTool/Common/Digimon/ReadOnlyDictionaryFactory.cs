@@ -1,14 +1,16 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champion;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Rookie;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common
 {
     public static class ReadOnlyDictionaryFactory
     {
-        public static ReadOnlyDictionary<DigimonType, IList<DigimonType>> CreateEvolutionTargetsReadOnlyDictionary()
+        public static ReadOnlyDictionary<DigimonType, IList<DigimonType>> CreateEvoTargetsReadOnlyDictionary()
         {
             var EvolutionTargetsDictionary = new Dictionary<DigimonType, IList<DigimonType>>()
                 {
@@ -22,7 +24,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues
             return new ReadOnlyDictionary<DigimonType, IList<DigimonType>>(EvolutionTargetsDictionary);
         }
 
-        public static ReadOnlyDictionary<DigimonType, EvolutionStage> CreateEvolutionStageReadOnlyDictionary()
+        public static ReadOnlyDictionary<DigimonType, EvolutionStage> CreateEvoStageReadOnlyDictionary()
         {
             var EvolutionStageDictionary = new Dictionary<DigimonType, EvolutionStage>()
             {
@@ -33,7 +35,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues
             return new ReadOnlyDictionary<DigimonType, EvolutionStage>(EvolutionStageDictionary);
         }
 
-        public static ReadOnlyDictionary<DigimonType, Func<IEvolutionCriteria>> CreateEvolutionCriteriaDigimonReadOnlyDictionary()
+        public static ReadOnlyDictionary<DigimonType, Func<IEvolutionCriteria>> CreateEvoCriteriaReadOnlyDictionary()
         {
             var EvolutionCriteriaDigimonDictionary = new Dictionary<DigimonType, Func<IEvolutionCriteria>>()
             {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Stats
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats
 {
-    public class DigimonStatNames
+    public class StatNames
     {
         #region Short names
         public readonly string HP_Short = "HP";

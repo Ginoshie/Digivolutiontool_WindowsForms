@@ -1,13 +1,10 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool
 {
-    public class UserDigimonDataObject : DigimonStats
+    public class UserDigimonDataObject : Stats
     {
         public DigimonType DigimonType { get; set; }
-
-        public int HPDividedByTen { get; set; }
-
-        public int MPDividedByTen { get; set; }
     }
 }

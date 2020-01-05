@@ -1,4 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool
 {
@@ -6,6 +7,6 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool
     {
         public DigimonType DigimonType { get; set; }
 
-        public DigimonStats DigimonStats;
+        public Stats Stats;
     }
 }

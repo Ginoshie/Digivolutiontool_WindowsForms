@@ -56,28 +56,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EvolutionTool\DigimonCombatStats.cs" />
-    <Compile Include="EvolutionTool\DigimonStats.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaAgumon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaGabumon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaTyrannomon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaCentarumon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaMonochromon.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaBattles.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaCareMistakes.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaCombatStats.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaDiscipline.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaHappiness.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaTech.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaWeight.cs" />
+    <Compile Include="EvolutionTool\Common\Stats\CombatStats.cs" />
+    <Compile Include="EvolutionTool\Common\Stats\Stats.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvolutionCriteriaAgumon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvolutionCriteriaGabumon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaTyrannomon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaCentarumon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaMonochromon.cs" />
     <Compile Include="EvolutionTool\EvolutionParamsChampionAndUltimate.cs" />
     <Compile Include="EvolutionTool\EvolutionParamsRookie.cs" />
-    <Compile Include="EvolutionTool\ReferenceValues\Digimon\Evolutionstage.cs" />
-    <Compile Include="EvolutionTool\ReferenceValues\Digimon\EvolutionTargetsListFactory.cs" />
-    <Compile Include="EvolutionTool\ReferenceValues\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
+    <Compile Include="EvolutionTool\Toolbox\DictionaryFactory.cs" />
+    <Compile Include="EvolutionTool\Toolbox\EvoToolbox.cs" />
+    <Compile Include="EvolutionTool\Common\Digimon\Evolutionstage.cs" />
+    <Compile Include="EvolutionTool\Common\Digimon\EvolutionTargetsListFactory.cs" />
+    <Compile Include="EvolutionTool\Common\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
+    <Compile Include="EvolutionTool\Common\Stats\CombatStat.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaBase.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaBirdramon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\EvolutionCriteriaGreymon.cs" />
-    <Compile Include="EvolutionTool\EvolutionCriteria\IEvolutionCriteriaDigimon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaBirdramon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaGreymon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\IEvolutionCriteriaDigimon.cs" />
     <Compile Include="EvolutionTool\EvolutionDeterminationFlow.cs" />
     <Compile Include="EvolutionTool\EvolutionDeterminator.cs" />
-    <Compile Include="EvolutionTool\ReferenceValues\Digimon\ReadOnlyDictionaryFactory.cs" />
-    <Compile Include="EvolutionTool\ReferenceValues\Digimon\DigimonType.cs" />
-    <Compile Include="EvolutionTool\ReferenceValues\Stats\DigimonStatNames.cs" />
+    <Compile Include="EvolutionTool\Common\Digimon\ReadOnlyDictionaryFactory.cs" />
+    <Compile Include="EvolutionTool\Common\Digimon\DigimonType.cs" />
+    <Compile Include="EvolutionTool\Common\Stats\StatNames.cs" />
     <Compile Include="EvolutionTool\UserDigimon.cs" />
     <Compile Include="EvolutionDeterminationForm.cs">
       <SubType>Form</SubType>
@@ -114,6 +123,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="EvolutionTool\EvoCriteria\Fresh\" />
+    <Folder Include="EvolutionTool\EvoCriteria\InTraining\" />
+    <Folder Include="EvolutionTool\EvoCriteria\Ultimate\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

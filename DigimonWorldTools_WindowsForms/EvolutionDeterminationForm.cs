@@ -1,6 +1,6 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool;
-using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
-using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.MessageboxTextMessages;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.MessageboxTextMessages;
 using System;
 using System.Windows.Forms;
 

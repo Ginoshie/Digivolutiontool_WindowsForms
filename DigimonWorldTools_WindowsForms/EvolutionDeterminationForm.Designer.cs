@@ -1,5 +1,5 @@
 ﻿using System;
-using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms
 {

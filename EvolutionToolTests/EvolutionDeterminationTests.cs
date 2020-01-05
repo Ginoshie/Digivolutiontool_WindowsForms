@@ -1,5 +1,5 @@
 ﻿using DigimonWorldTools_WindowsForms;
-using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 using NUnit.Framework;
 using DigimonWorldTools_WindowsForms.EvolutionTool;
 

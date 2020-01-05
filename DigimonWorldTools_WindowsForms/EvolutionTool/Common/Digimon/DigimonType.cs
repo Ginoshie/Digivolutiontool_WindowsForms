@@ -1,4 +1,4 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon
 {
     public enum DigimonType
     {

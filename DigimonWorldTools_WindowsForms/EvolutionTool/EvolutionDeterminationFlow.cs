@@ -1,4 +1,6 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
+
+namespace DigimonWorldTools_WindowsForms.EvolutionTool
 {
     public static class EvolutionDeterminationFlow
     {
@@ -11,17 +13,20 @@
 
         private static UserDigimonDataObject CreateFilledUserDigimonDataObject(EvolutionDeterminationForm form1)
         {
-            return new UserDigimonDataObject
+            CombatStats digimonCombatStats = new CombatStats()
             {
-                DigimonType = form1.CurrentDigimonType
-                , HP = form1.HP
-                , HPDividedByTen = form1.HPDevidedByTen
+                HP = form1.HP
                 , MP = form1.MP
-                , MPDividedByTen = form1.MPDevidedByTen
                 , Off = form1.Off
                 , Def = form1.Def
                 , Speed = form1.Speed
                 , Brains = form1.Brains
+            };
+
+            return new UserDigimonDataObject()
+            {
+                DigimonType = form1.CurrentDigimonType
+                , DigimonCombatStats = digimonCombatStats
                 , CareMistakes = form1.Caremistakes
                 , Weight = form1.Weight
                 , Happiness = form1.Happiness

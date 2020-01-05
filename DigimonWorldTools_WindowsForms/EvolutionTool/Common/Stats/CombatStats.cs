@@ -1,6 +1,6 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats
 {
-    public class DigimonCombatStats
+    public class CombatStats
     {
         public int HP { get; set; }
 

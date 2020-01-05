@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.MessageboxTextMessages
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.MessageboxTextMessages
 {
     public static class MessageBoxWarningTextMessages
     {

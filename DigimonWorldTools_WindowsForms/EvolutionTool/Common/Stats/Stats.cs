@@ -1,8 +1,8 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats
 {
-    public class DigimonStats
+    public class Stats
     {
-        public DigimonCombatStats DigimonCombatStats {get; set; }
+        public CombatStats DigimonCombatStats {get; set; }
 
         public int CareMistakes { get; set; }
 
@@ -15,6 +15,5 @@
         public int Battles { get; set; }
 
         public int Tech { get; set; }
-
     }
 }
