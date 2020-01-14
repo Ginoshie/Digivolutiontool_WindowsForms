@@ -8,9 +8,12 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Toolbox
 {
     public static class EvoToolbox
     {
-        /*public static bool IsStatPartOfCriteria(CombatStats combatStats, CombatStat combatStat)
+        public static bool IsStatPartOfCriteria(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStat combatStat)
         {
-        }*/
+            Dictionary<CombatStat, int> evoCriteriaCombatStatsDict = DictionaryFactory.GetEvoCriteriaCombatStatsDict(evoCriteriaCombatStats);
+
+            return (evoCriteriaCombatStatsDict[combatStat] > 0);
+        }
     
         public static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
         {
