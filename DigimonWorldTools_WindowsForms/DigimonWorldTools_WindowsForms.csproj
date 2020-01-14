@@ -65,6 +65,7 @@
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaWeight.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStats.cs" />
     <Compile Include="EvolutionTool\Common\Stats\Stats.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\IMinMaxCritieria.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvolutionCriteriaAgumon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvolutionCriteriaGabumon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaTyrannomon.cs" />

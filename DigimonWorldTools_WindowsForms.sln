@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigimonWorldTools_WindowsForms", "DigimonWorldTools_WindowsForms\DigimonWorldTools_WindowsForms.csproj", "{74F4BA8D-E512-4660-B04F-8452CE770224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvolutionToolTests", "EvolutionToolTests\EvolutionToolTests.csproj", "{7E27FB26-993D-44EB-8554-CEF5F9ABE3EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigimonWorldTools_Tests", "EvolutionToolTests\DigimonWorldTools_Tests.csproj", "{7E27FB26-993D-44EB-8554-CEF5F9ABE3EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

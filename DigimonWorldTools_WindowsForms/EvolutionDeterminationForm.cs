@@ -14,8 +14,6 @@ namespace DigimonWorldTools_WindowsForms
 
             CbCurrentDigimonType.DataSource = Enum.GetValues(typeof(DigimonType));
             CbTargetDigimon.DataSource = Enum.GetValues(typeof(DigimonType));
-
-            TestSetUserDigimonStats();
         }
         #region Form properties
         public DigimonType CurrentDigimonType
@@ -117,37 +115,6 @@ namespace DigimonWorldTools_WindowsForms
         private void BtDigimonDigivolve_Click(object sender, EventArgs e)
         {
             EvolutionDeterminationFlow.StartEvolutionDeterminiationFlow(this);
-        }
-        #endregion
-
-        #region Test functions/methods
-        private void TestSetUserDigimonStats()
-        {
-            CbCurrentDigimonType.SelectedItem = null;
-
-            numUpDownHP.Text = "1600";
-
-            numUpDownMP.Text = "900";
-
-            numUpDownOff.Text = "160";
-
-            numUpDownDef.Text = "100";
-
-            numUpDownSpd.Text = "100";
-
-            numUpDownBrn.Text = "100";
-
-            numUpDownCareMistakes.Text = "3";
-
-            numUpDownWeight.Text = "30";
-
-            numUpDownHappiness.Text = "100";
-
-            numUpDownDiscipline.Text = "100";
-
-            numUpDownBattles.Text = "0";
-
-            numUpDownTechniques.Text = "49";
         }
         #endregion
     }

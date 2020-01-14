@@ -6,7 +6,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champio
     public class EvolutionCriteriaTyrannomon: IEvolutionCriteria
     {
         public EvolutionStage EvolutionStage => EvolutionStage.Champion;
-
+        
         public DigimonType DigimonType => DigimonType.Tyrannomon;
 
         public EvoCriteriaCombatStats CombatStats { get; } = new EvoCriteriaCombatStats(

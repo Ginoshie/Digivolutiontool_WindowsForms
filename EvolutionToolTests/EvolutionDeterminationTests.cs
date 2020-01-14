@@ -57,9 +57,10 @@ namespace EvolutionToolTests
         [TestCase(DigimonType.Greymon)]
         public void AgumonIntoGreymonEvolutionFlow(DigimonType expectedEvolutionResult)
         {
-            // When
+            // Given
             FillFormForGreymonEvolution();
 
+            // When
             EvolutionDeterminationFlow.StartEvolutionDeterminiationFlow(evolutionDeterminationForm);
 
             // Then
