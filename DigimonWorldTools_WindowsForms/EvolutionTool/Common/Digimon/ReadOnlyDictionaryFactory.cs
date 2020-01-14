@@ -1,7 +1,7 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Digimon.Champion;
-using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Digimon.Rookie;
-using DigimonWorldTools_WindowsForms.EvolutionTool.ReferenceValues.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champion;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Rookie;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
