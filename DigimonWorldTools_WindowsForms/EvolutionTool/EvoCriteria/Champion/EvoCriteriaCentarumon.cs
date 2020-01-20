@@ -1,25 +1,25 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champion
+namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
 {
-    public class EvolutionCriteriaGreymon : IEvolutionCriteria
+    public class EvoCriteriaCentarumon : IEvoCriteria
     {
-        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
+        public EvoStage EvoStage => EvoStage.Champion;
 
-        public DigimonType DigimonType => DigimonType.Greymon;
+        public DigimonType DigimonType => DigimonType.Centarumon;
 
         public EvoCriteriaCombatStats CombatStats { get; } = new EvoCriteriaCombatStats(
             hp: 0
             , mp: 0
-            , off: 100
-            , def: 100
-            , speed: 100
+            , off: 0
+            , def: 0
+            , speed: 0
             , brains: 100
         );
 
         public EvoCriteriaCareMistakes CareMistakes { get; } = new EvoCriteriaCareMistakes(
-            amtCareMistakes: 1
+            amtCareMistakes: 3
             , isMax: true
         );
 
@@ -29,11 +29,11 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champio
         );
 
         public EvoCriteriaHappiness Happiness { get; } = new EvoCriteriaHappiness(
-            amtHappiness:0
+            amtHappiness: 0
         );
 
         public EvoCriteriaDiscipline Discipline { get; } = new EvoCriteriaDiscipline(
-            amtDiscipline: 90
+            amtDiscipline: 60
         );
 
         public EvoCriteriaBattles Battles { get; } = new EvoCriteriaBattles(
@@ -42,7 +42,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champio
         );
 
         public EvoCriteriaTech Tech { get; } = new EvoCriteriaTech(
-            amtTech: 35
+            amtTech: 28
         );
 
         public DigimonType? PrecursorDigimonType => null;

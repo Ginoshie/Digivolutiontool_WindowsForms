@@ -1,30 +1,30 @@
 ﻿using DigimonWorldTools_WindowsForms;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using NUnit.Framework;
-using DigimonWorldTools_WindowsForms.EvolutionTool;
+using DigimonWorldTools_WindowsForms.EvoTool;
 
-namespace EvolutionToolTests
+namespace EvoToolTests
 {
     [TestFixture]
-    public class EvolutionDeterminationTests
+    public class EvoDeterminationTests
     {
-        private EvolutionDeterminationForm evolutionDeterminationForm;
+        private EvoDeterminationForm evoDeterminationForm;
 
         [SetUp]
         public void Setup()
         {
-            evolutionDeterminationForm = new EvolutionDeterminationForm();
+            evoDeterminationForm = new EvoDeterminationForm();
         }
 
         [TearDown]
         public void TearDown()
         {
-            evolutionDeterminationForm = null;
+            evoDeterminationForm = null;
         }
 
-        private void FillFormForGreymonEvolution()
+        private void FillFormForGreymonEvo()
         {
-            evolutionDeterminationForm = new EvolutionDeterminationForm
+            evoDeterminationForm = new EvoDeterminationForm
             {
                 CurrentDigimonType = DigimonType.Agumon,
 
@@ -55,16 +55,16 @@ namespace EvolutionToolTests
         }
 
         [TestCase(DigimonType.Greymon)]
-        public void AgumonIntoGreymonEvolutionFlow(DigimonType expectedEvolutionResult)
+        public void AgumonIntoGreymonEvoFlow(DigimonType expectedEvoResult)
         {
             // Given
-            FillFormForGreymonEvolution();
+            FillFormForGreymonEvo();
 
             // When
-            EvolutionDeterminationFlow.StartEvolutionDeterminiationFlow(evolutionDeterminationForm);
+            EvoDeterminationFlow.StartEvoDeterminiationFlow(evoDeterminationForm);
 
             // Then
-            Assert.That(evolutionDeterminationForm.EvolutionOutcome, Is.EqualTo(expectedEvolutionResult));
+            Assert.That(evoDeterminationForm.EvoOutcome, Is.EqualTo(expectedEvoResult));
         }
     }
 }

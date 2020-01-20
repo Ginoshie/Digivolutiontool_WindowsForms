@@ -1,4 +1,4 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
+﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
     public class EvoCriteriaCombatStats
     {

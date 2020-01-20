@@ -1,9 +1,7 @@
 ﻿namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
 {
-    public interface IMinMaxCritieria
+    public interface IMinCriteria
     {
         int Value { get; }
-
-        bool IsMax { get; }
     }
 }

@@ -1,54 +1,54 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champion;
-using DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Rookie;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion;
+using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common
+namespace DigimonWorldTools_WindowsForms.EvoTool.Common
 {
     public static class ReadOnlyDictionaryFactory
     {
         public static ReadOnlyDictionary<DigimonType, IList<DigimonType>> CreateEvoTargetsReadOnlyDictionary()
         {
-            var EvolutionTargetsDictionary = new Dictionary<DigimonType, IList<DigimonType>>()
+            var EvoTargetsDict = new Dictionary<DigimonType, IList<DigimonType>>()
                 {
-                    { DigimonType.Koromon, EvolutionTargetsListFactory.KoromonEvolutions }
-                    , { DigimonType.Agumon, EvolutionTargetsListFactory.AgumonEvolutions }
+                    { DigimonType.Koromon, EvoTargetsListFactory.KoromonEvo }
+                    , { DigimonType.Agumon, EvoTargetsListFactory.AgumonEvo }
                     , { DigimonType.Birdramon, new List<DigimonType> (){} }
                     , { DigimonType.Greymon, new List<DigimonType> (){} }
                     , { DigimonType.Palmon, new List<DigimonType> (){} }
                 };
 
-            return new ReadOnlyDictionary<DigimonType, IList<DigimonType>>(EvolutionTargetsDictionary);
+            return new ReadOnlyDictionary<DigimonType, IList<DigimonType>>(EvoTargetsDict);
         }
 
-        public static ReadOnlyDictionary<DigimonType, EvolutionStage> CreateEvoStageReadOnlyDictionary()
+        public static ReadOnlyDictionary<DigimonType, EvoStage> CreateEvoStageReadOnlyDictionary()
         {
-            var EvolutionStageDictionary = new Dictionary<DigimonType, EvolutionStage>()
+            var EvoStageDict = new Dictionary<DigimonType, EvoStage>()
             {
-                {DigimonType.Koromon, EvolutionStage.InTraining }
-                , {DigimonType.Agumon, EvolutionStage.Rookie }
+                {DigimonType.Koromon, EvoStage.InTraining }
+                , {DigimonType.Agumon, EvoStage.Rookie }
             };
 
-            return new ReadOnlyDictionary<DigimonType, EvolutionStage>(EvolutionStageDictionary);
+            return new ReadOnlyDictionary<DigimonType, EvoStage>(EvoStageDict);
         }
 
-        public static ReadOnlyDictionary<DigimonType, Func<IEvolutionCriteria>> CreateEvoCriteriaReadOnlyDictionary()
+        public static ReadOnlyDictionary<DigimonType, Func<IEvoCriteria>> CreateEvoCriteriaReadOnlyDictionary()
         {
-            var EvolutionCriteriaDigimonDictionary = new Dictionary<DigimonType, Func<IEvolutionCriteria>>()
+            var EvoCriteriaDigimonDict = new Dictionary<DigimonType, Func<IEvoCriteria>>()
             {
-                { DigimonType.Gabumon, () => { return new EvolutionCriteriaGabumon(); } }
-                , { DigimonType.Agumon, () => { return new EvolutionCriteriaAgumon(); } }
-                , { DigimonType.Greymon, () => { return new EvolutionCriteriaGreymon(); } }
-                , { DigimonType.Birdramon, () => { return new EvolutionCriteriaBirdramon(); } }
-                , { DigimonType.Centarumon, () => { return new EvolutionCriteriaCentarumon(); } }
-                , { DigimonType.Tyrannomon, () => { return new EvolutionCriteriaTyrannomon(); } }
-                , { DigimonType.Monochromon, () => { return new EvolutionCriteriaMonochromon(); } }
+                { DigimonType.Gabumon, () => { return new EvoCriteriaGabumon(); } }
+                , { DigimonType.Agumon, () => { return new EvoCriteriaAgumon(); } }
+                , { DigimonType.Greymon, () => { return new EvoCriteriaGreymon(); } }
+                , { DigimonType.Birdramon, () => { return new EvoCriteriaBirdramon(); } }
+                , { DigimonType.Centarumon, () => { return new EvoCriteriaCentarumon(); } }
+                , { DigimonType.Tyrannomon, () => { return new EvoCriteriaTyrannomon(); } }
+                , { DigimonType.Monochromon, () => { return new EvoMonochromon(); } }
             };
 
-            return new ReadOnlyDictionary<DigimonType, Func<IEvolutionCriteria>>(EvolutionCriteriaDigimonDictionary);
+            return new ReadOnlyDictionary<DigimonType, Func<IEvoCriteria>>(EvoCriteriaDigimonDict);
         }            
     }
 }

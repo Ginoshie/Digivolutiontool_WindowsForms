@@ -1,8 +1,8 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using System.Collections.Generic;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.Toolbox
+namespace DigimonWorldTools_WindowsForms.EvoTool.Toolbox
 {
     class DictionaryFactory
     {

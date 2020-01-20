@@ -1,9 +1,9 @@
 ﻿using System;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms
 {
-    partial class EvolutionDeterminationForm
+    partial class EvoDeterminationForm
     {
         /// <summary>
         /// Required designer variable.

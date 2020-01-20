@@ -1,12 +1,11 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-//using DigimonWorldTools_WindowsForms.EvolutionTool.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria
+namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
 {
-    public interface IEvolutionCriteria
+    public interface IEvoCriteria
     {
-        EvolutionStage EvolutionStage { get; }
+        EvoStage EvoStage { get; }
 
         DigimonType DigimonType { get; }
 

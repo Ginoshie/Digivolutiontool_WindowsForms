@@ -1,14 +1,14 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool
+namespace DigimonWorldTools_WindowsForms.EvoTool
 {
-    public class EvolutionParamsChampionAndUltimate
+    public class EvoParametersChampionAndUltimate
     {
-        public EvolutionParamsChampionAndUltimate()
+        public EvoParametersChampionAndUltimate()
         {
-            HighestPrioEvolution = DigimonType.Numemon;
+            HighestPrioEvo = DigimonType.Numemon;
 
-            HighestEvolutionScore = 0;
+            HighestEvoScore = 0;
 
             AmountCriteriaStats = 0;
 
@@ -19,11 +19,11 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool
             CarriedOverCriteriaStatCount = 0;
         }
 
-        public DigimonType HighestPrioEvolution { get; set; }
+        public DigimonType HighestPrioEvo { get; set; }
 
-        public int HighestEvolutionScore { get; set; }
+        public int HighestEvoScore { get; set; }
 
-        public int EvolutionScore
+        public int EvoScore
         {
             get { return (AmountCriteriaStats + CarriedOverAmountStats) / (CriteriaStatCount + CarriedOverCriteriaStatCount); }
         }

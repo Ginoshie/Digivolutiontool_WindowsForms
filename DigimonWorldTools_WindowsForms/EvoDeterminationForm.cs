@@ -1,14 +1,13 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.MessageboxTextMessages;
+﻿using DigimonWorldTools_WindowsForms.EvoTool;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using System;
 using System.Windows.Forms;
 
 namespace DigimonWorldTools_WindowsForms
 {
-    public partial class EvolutionDeterminationForm : Form
+    public partial class EvoDeterminationForm : Form
     {
-        public EvolutionDeterminationForm()
+        public EvoDeterminationForm()
         {
             InitializeComponent();
 
@@ -104,7 +103,7 @@ namespace DigimonWorldTools_WindowsForms
             set { numUpDownTechniques.Text = value.ToString(); }
         }
 
-        public DigimonType EvolutionOutcome
+        public DigimonType EvoOutcome
         {
             get { return (DigimonType)Enum.Parse(typeof(DigimonType), TbEvolutionOutcome.Text); }
             set { TbEvolutionOutcome.Text = value.ToString(); }
@@ -114,7 +113,7 @@ namespace DigimonWorldTools_WindowsForms
         #region Events
         private void BtDigimonDigivolve_Click(object sender, EventArgs e)
         {
-            EvolutionDeterminationFlow.StartEvolutionDeterminiationFlow(this);
+            EvoDeterminationFlow.StartEvoDeterminiationFlow(this);
         }
         #endregion
     }

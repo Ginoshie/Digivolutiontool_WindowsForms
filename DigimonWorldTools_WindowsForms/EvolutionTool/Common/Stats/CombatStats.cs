@@ -1,4 +1,4 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats
+﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.Stats
 {
     public class CombatStats
     {

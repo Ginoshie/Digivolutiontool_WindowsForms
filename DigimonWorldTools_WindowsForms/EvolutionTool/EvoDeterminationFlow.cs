@@ -1,17 +1,17 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool
+namespace DigimonWorldTools_WindowsForms.EvoTool
 {
-    public static class EvolutionDeterminationFlow
+    public static class EvoDeterminationFlow
     {
-        public static void StartEvolutionDeterminiationFlow(EvolutionDeterminationForm evolutionDeterminatorForm)
+        public static void StartEvoDeterminiationFlow(EvoDeterminationForm evoDeterminatorForm)
         {
-            EvolutionDeterminator evolutionDeterminator = new EvolutionDeterminator(CreateFilledUserDigimonDataObject(evolutionDeterminatorForm));
+            EvoDeterminator evoDeterminator = new EvoDeterminator(CreateFilledUserDigimonDataObject(evoDeterminatorForm));
 
-            evolutionDeterminatorForm.EvolutionOutcome = evolutionDeterminator.DetermineEvolutionResult();
+            evoDeterminatorForm.EvoOutcome = evoDeterminator.DetermineEvoResult();
         }
 
-        private static UserDigimonDataObject CreateFilledUserDigimonDataObject(EvolutionDeterminationForm form1)
+        private static UserDigimonDataObject CreateFilledUserDigimonDataObject(EvoDeterminationForm form1)
         {
             CombatStats digimonCombatStats = new CombatStats()
             {

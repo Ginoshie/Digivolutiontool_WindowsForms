@@ -65,40 +65,42 @@
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaWeight.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStats.cs" />
     <Compile Include="EvolutionTool\Common\Stats\Stats.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\IMinCriteria.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\IMinMaxCritieria.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvolutionCriteriaAgumon.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvolutionCriteriaGabumon.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaTyrannomon.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaCentarumon.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaMonochromon.cs" />
-    <Compile Include="EvolutionTool\EvolutionParamsChampionAndUltimate.cs" />
-    <Compile Include="EvolutionTool\EvolutionParamsRookie.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\IStatRangeCriteria.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvoCriteriaAgumon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Rookie\EvoCriteriaGabumon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaTyrannomon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaCentarumon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaMonochromon.cs" />
+    <Compile Include="EvolutionTool\EvoParamsChampionAndUltimate.cs" />
+    <Compile Include="EvolutionTool\EvoParamsRookie.cs" />
     <Compile Include="EvolutionTool\Toolbox\DictionaryFactory.cs" />
     <Compile Include="EvolutionTool\Toolbox\EvoToolbox.cs" />
-    <Compile Include="EvolutionTool\Common\Digimon\Evolutionstage.cs" />
-    <Compile Include="EvolutionTool\Common\Digimon\EvolutionTargetsListFactory.cs" />
+    <Compile Include="EvolutionTool\Common\Digimon\EvoStage.cs" />
+    <Compile Include="EvolutionTool\Common\Digimon\EvoTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\Common\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStat.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaBirdramon.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvolutionCriteriaGreymon.cs" />
-    <Compile Include="EvolutionTool\EvoCriteria\IEvolutionCriteriaDigimon.cs" />
-    <Compile Include="EvolutionTool\EvolutionDeterminationFlow.cs" />
-    <Compile Include="EvolutionTool\EvolutionDeterminator.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaBirdramon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaGreymon.cs" />
+    <Compile Include="EvolutionTool\EvoCriteria\IEvoCriteriaDigimon.cs" />
+    <Compile Include="EvolutionTool\EvoDeterminationFlow.cs" />
+    <Compile Include="EvolutionTool\EvoDeterminator.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\ReadOnlyDictionaryFactory.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\DigimonType.cs" />
     <Compile Include="EvolutionTool\Common\Stats\StatNames.cs" />
     <Compile Include="EvolutionTool\UserDigimon.cs" />
-    <Compile Include="EvolutionDeterminationForm.cs">
+    <Compile Include="EvoDeterminationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EvolutionDeterminationForm.Designer.cs">
-      <DependentUpon>EvolutionDeterminationForm.cs</DependentUpon>
+    <Compile Include="EvoDeterminationForm.Designer.cs">
+      <DependentUpon>EvoDeterminationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EvolutionDeterminationForm.resx">
-      <DependentUpon>EvolutionDeterminationForm.cs</DependentUpon>
+    <EmbeddedResource Include="EvoDeterminationForm.resx">
+      <DependentUpon>EvoDeterminationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

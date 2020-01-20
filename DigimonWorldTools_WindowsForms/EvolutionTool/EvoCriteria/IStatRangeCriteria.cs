@@ -1,9 +1,9 @@
 ﻿namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
 {
-    public interface IMinMaxCritieria
+    public interface IStatRangeCriteria
     {
         int Value { get; }
 
-        bool IsMax { get; }
+        int MaxDeviationBoundsIncluded { get; }
     }
 }

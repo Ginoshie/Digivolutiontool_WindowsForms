@@ -1,30 +1,29 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champion
+namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
 {
-    public class EvolutionCriteriaMonochromon : IEvolutionCriteria
+    public class EvoCriteriaBirdramon : IEvoCriteria
     {
-        public EvolutionStage EvolutionStage => EvolutionStage.Champion;
+        public EvoStage EvoStage => EvoStage.Champion;
 
-        public DigimonType DigimonType => DigimonType.Monochromon;
+        public DigimonType DigimonType => DigimonType.Birdramon;
 
         public EvoCriteriaCombatStats CombatStats { get; } = new EvoCriteriaCombatStats(
-            hp: 1000
+            hp: 0
             , mp: 0
             , off: 0
-            , def: 100
-            , speed: 0
-            , brains: 100
+            , def: 0
+            , speed: 100
+            , brains: 0
         );
 
         public EvoCriteriaCareMistakes CareMistakes { get; } = new EvoCriteriaCareMistakes(
             amtCareMistakes: 3
-            , isMax: true
+            , isMax: false
         );
-
         public EvoCriteriaWeight Weight { get; } = new EvoCriteriaWeight(
-            amtWeight: 40
+            amtWeight: 20
             , amtMaxDeviation: 5
         );
 
@@ -37,14 +36,14 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Champio
         );
 
         public EvoCriteriaBattles Battles { get; } = new EvoCriteriaBattles(
-            amtBattles: 5
-            , isMax: true
+            amtBattles: 0
+            , isMax: false
         );
 
         public EvoCriteriaTech Tech { get; } = new EvoCriteriaTech(
             amtTech: 35
         );
 
-        public DigimonType? PrecursorDigimonType => null;
+        public DigimonType? PrecursorDigimonType => DigimonType.Biyomon;
     }
 }

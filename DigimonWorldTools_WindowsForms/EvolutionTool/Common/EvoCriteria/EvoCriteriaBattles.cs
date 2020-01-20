@@ -1,6 +1,6 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.EvoCriteria;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
+namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
     public class EvoCriteriaBattles : IMinMaxCritieria
     {

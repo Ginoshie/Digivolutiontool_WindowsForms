@@ -1,6 +1,8 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
+﻿using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
+
+namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaWeight
+    public class EvoCriteriaWeight : IStatRangeCriteria
     {
         public EvoCriteriaWeight(int amtWeight, int amtMaxDeviation)
         {
@@ -11,6 +13,6 @@
 
         public int Value { get; }
 
-        public int MaxDeviationBoundsIncluded;
+        public int MaxDeviationBoundsIncluded { get; }
     }
 }

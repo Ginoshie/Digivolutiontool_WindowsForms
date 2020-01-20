@@ -1,6 +1,8 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
+﻿using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
+
+namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaTech
+    public class EvoCriteriaTech : IMinCriteria
     {
         public EvoCriteriaTech(int amtTech)
         {

@@ -1,11 +1,11 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvolutionCriteria.Rookie
+namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
 {
-    class EvolutionCriteriaAgumon : IEvolutionCriteria
+    class EvoCriteriaAgumon : IEvoCriteria
     {
-        public EvolutionStage EvolutionStage => EvolutionStage.Rookie;
+        public EvoStage EvoStage => EvoStage.Rookie;
 
         public DigimonType DigimonType => DigimonType.Agumon;
 

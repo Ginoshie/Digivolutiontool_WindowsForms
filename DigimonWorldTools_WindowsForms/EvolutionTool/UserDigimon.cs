@@ -1,7 +1,7 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool
+namespace DigimonWorldTools_WindowsForms.EvoTool
 {
     public class UserDigimon
     {

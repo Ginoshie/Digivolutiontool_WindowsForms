@@ -1,4 +1,4 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.MessageboxTextMessages
+﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.MessageboxTextMessages
 {
     public static class MessageBoxWarningTextMessages
     {

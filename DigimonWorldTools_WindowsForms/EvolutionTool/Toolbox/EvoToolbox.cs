@@ -1,21 +1,15 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
-using DigimonWorldTools_WindowsForms.EvolutionTool.EvoCriteria;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
+using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.Toolbox
+namespace DigimonWorldTools_WindowsForms.EvoTool.Toolbox
 {
     public static class EvoToolbox
     {
-        public static bool IsStatPartOfCriteria(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStat combatStat)
-        {
-            Dictionary<CombatStat, int> evoCriteriaCombatStatsDict = DictionaryFactory.GetEvoCriteriaCombatStatsDict(evoCriteriaCombatStats);
-
-            return (evoCriteriaCombatStatsDict[combatStat] > 0);
-        }
-    
         public static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
         {
             #region Error handling
@@ -94,6 +88,39 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Toolbox
             #endregion
 
             return minMaxCriteria.IsMax ? (stat <= minMaxCriteria.Value) : (stat >= minMaxCriteria.Value);
+        }
+
+        public static bool IsMinCriteriaMet(IMinCriteria minCriteria, int stat)
+        {
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (minCriteria == null)
+            {
+                throw new ArgumentNullException(nameof(minCriteria));
+            }
+            #endregion
+
+            return (stat >= minCriteria.Value);
+        }
+
+        public static bool IsValueRangeCriteriaMet(IStatRangeCriteria valueRangeCriteria, int stat)
+        {
+            int lowerBound = valueRangeCriteria.Value - valueRangeCriteria.MaxDeviationBoundsIncluded;
+
+            int upperBound = valueRangeCriteria.Value + valueRangeCriteria.MaxDeviationBoundsIncluded;
+
+            return (stat <= upperBound && stat >= lowerBound);
+        }
+
+        public static bool IsPrecursorCriteriaMet(DigimonType? precursorDigimonType, DigimonType userDigimonDigimonType)
+        {
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (userDigimonDigimonType == null)
+            {
+                throw new ArgumentNullException(nameof(userDigimonDigimonType));
+            }
+
+            return (precursorDigimonType == null) ? false : (userDigimonDigimonType == precursorDigimonType);
         }
     }
 }
