@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.Toolbox
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 {
-    public static class EvoToolbox
+    public static class StatsToolbox
     {
         public static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
         {

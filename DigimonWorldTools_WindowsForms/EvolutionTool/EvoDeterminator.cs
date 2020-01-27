@@ -1,7 +1,7 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvoTool.Toolbox;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -121,13 +121,13 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
 
             #region MainCriteriaCheckCalls
             // Check Combatstats criteria.
-            if (EvoToolbox.IsCombatStatCriteriaMet(EvoCriteria.CombatStats, UserDigimon.DigimonCombatStats)) { NrOfCriteriaMet++; }
+            if (StatsToolbox.IsCombatStatCriteriaMet(EvoCriteria.CombatStats, UserDigimon.DigimonCombatStats)) { NrOfCriteriaMet++; }
 
             // Check Caremistakes criteria.
-            if (EvoToolbox.IsMinMaxCriteriaMet(EvoCriteria.CareMistakes, UserDigimon.CareMistakes)) { NrOfCriteriaMet++; }
+            if (StatsToolbox.IsMinMaxCriteriaMet(EvoCriteria.CareMistakes, UserDigimon.CareMistakes)) { NrOfCriteriaMet++; }
 
             // Check Weight criteria.
-            if (EvoToolbox.IsValueRangeCriteriaMet(EvoCriteria.Weight, UserDigimon.Weight)) { NrOfCriteriaMet++; }
+            if (StatsToolbox.IsValueRangeCriteriaMet(EvoCriteria.Weight, UserDigimon.Weight)) { NrOfCriteriaMet++; }
             #endregion
 
             // Main criteria have been checked, check if enough criteria have been met already.
@@ -136,15 +136,15 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
             #region BonusCriteriaCheckCalls
             if (
                 // Check Precursor digimontype criteria.
-                EvoToolbox.IsPrecursorCriteriaMet(EvoCriteria.PrecursorDigimonType, UserDigimon.DigimonType)
+                StatsToolbox.IsPrecursorCriteriaMet(EvoCriteria.PrecursorDigimonType, UserDigimon.DigimonType)
                 // Check Techniques criteria.
-                || EvoToolbox.IsMinCriteriaMet(EvoCriteria.Tech, UserDigimon.Tech)
+                || StatsToolbox.IsMinCriteriaMet(EvoCriteria.Tech, UserDigimon.Tech)
                 // Check Happiness criteria.
-                || EvoToolbox.IsMinCriteriaMet(EvoCriteria.Happiness, UserDigimon.Happiness)
+                || StatsToolbox.IsMinCriteriaMet(EvoCriteria.Happiness, UserDigimon.Happiness)
                 // Check Discipline criteria.
-                || EvoToolbox.IsMinCriteriaMet(EvoCriteria.Discipline, UserDigimon.Discipline)
+                || StatsToolbox.IsMinCriteriaMet(EvoCriteria.Discipline, UserDigimon.Discipline)
                 // Check Battles criteria.
-                || EvoToolbox.IsMinMaxCriteriaMet(EvoCriteria.Battles, UserDigimon.Battles)
+                || StatsToolbox.IsMinMaxCriteriaMet(EvoCriteria.Battles, UserDigimon.Battles)
             )
             {
                 NrOfCriteriaMet++;

@@ -76,7 +76,7 @@
     <Compile Include="EvolutionTool\EvoParamsChampionAndUltimate.cs" />
     <Compile Include="EvolutionTool\EvoParamsRookie.cs" />
     <Compile Include="EvolutionTool\Common\Factories\DictionaryFactory.cs" />
-    <Compile Include="EvolutionTool\Toolbox\EvoToolbox.cs" />
+    <Compile Include="EvolutionTool\Common\Toolbox\StatsToolbox.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\EvoStage.cs" />
     <Compile Include="EvolutionTool\Common\Factories\EvoTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\Common\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
