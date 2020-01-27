@@ -81,6 +81,7 @@
     <Compile Include="EvolutionTool\Common\Factories\EvoTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\Common\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStat.cs" />
+    <Compile Include="EvolutionTool\EvoToolbox.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaBirdramon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaGreymon.cs" />

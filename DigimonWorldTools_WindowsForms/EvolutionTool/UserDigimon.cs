@@ -7,6 +7,6 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
     {
         public DigimonType DigimonType { get; set; }
 
-        public Stats Stats;
+        public Stats Stats { get; set; }
     }
 }

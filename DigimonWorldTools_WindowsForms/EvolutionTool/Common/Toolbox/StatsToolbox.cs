@@ -41,7 +41,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
             return (evoCriteriaCombatStatsDict[combatStat] > 0);
         }
     
-        public static bool IsCombatStatCriteriaMet(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        public static bool IsCombatStatsCriteriaMet(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -109,12 +109,6 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 
         public static bool IsPrecursorCriteriaMet(DigimonType? precursorDigimonType, DigimonType userDigimonDigimonType)
         {
-            // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (userDigimonDigimonType == null)
-            {
-                throw new ArgumentNullException(nameof(userDigimonDigimonType));
-            }
-
             return (precursorDigimonType == null) ? false : (userDigimonDigimonType == precursorDigimonType);
         }
     }
