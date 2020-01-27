@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using System.Collections.Generic;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories
 {
     public static class EvoTargetsListFactory
     {

@@ -75,10 +75,10 @@
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaMonochromon.cs" />
     <Compile Include="EvolutionTool\EvoParamsChampionAndUltimate.cs" />
     <Compile Include="EvolutionTool\EvoParamsRookie.cs" />
-    <Compile Include="EvolutionTool\Toolbox\DictionaryFactory.cs" />
+    <Compile Include="EvolutionTool\Common\Factories\DictionaryFactory.cs" />
     <Compile Include="EvolutionTool\Toolbox\EvoToolbox.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\EvoStage.cs" />
-    <Compile Include="EvolutionTool\Common\Digimon\EvoTargetsListFactory.cs" />
+    <Compile Include="EvolutionTool\Common\Factories\EvoTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\Common\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStat.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="EvolutionTool\EvoCriteria\IEvoCriteriaDigimon.cs" />
     <Compile Include="EvolutionTool\EvoDeterminationFlow.cs" />
     <Compile Include="EvolutionTool\EvoDeterminator.cs" />
-    <Compile Include="EvolutionTool\Common\Digimon\ReadOnlyDictionaryFactory.cs" />
+    <Compile Include="EvolutionTool\Common\Factories\ReadOnlyDictionaryFactory.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\DigimonType.cs" />
     <Compile Include="EvolutionTool\Common\Stats\StatNames.cs" />
     <Compile Include="EvolutionTool\UserDigimon.cs" />

@@ -2,8 +2,8 @@
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using System.Collections.Generic;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.Toolbox
-{
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories
+{ 
     class DictionaryFactory
     {
         public static Dictionary<CombatStat, int> GetCombatStatsDict(CombatStats combatStats, bool divideByTenHPMP)
