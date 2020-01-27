@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.Common
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories
 {
     public static class ReadOnlyDictionaryFactory
     {

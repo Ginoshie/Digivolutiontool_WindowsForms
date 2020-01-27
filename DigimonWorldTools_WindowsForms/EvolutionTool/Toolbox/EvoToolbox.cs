@@ -1,4 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
@@ -32,12 +33,6 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.Toolbox
             if (evoCriteriaCombatStats == null)
             {
                 throw new ArgumentNullException(nameof(evoCriteriaCombatStats));
-            }
-
-            // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (combatStat == null)
-            {
-                throw new ArgumentNullException(nameof(combatStat));
             }
             #endregion
 
