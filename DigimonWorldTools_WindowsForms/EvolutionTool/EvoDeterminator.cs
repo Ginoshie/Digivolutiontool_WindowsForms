@@ -2,6 +2,7 @@
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 using System;
 using System.Collections.Generic;
@@ -13,25 +14,23 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
     {
         public EvoDeterminator(UserDigimonDataObject UserDigimonDataObject)
         {
-            // TODO: This has to become a prefilled UserDigimon input parameter.
+            UserDigimon = new UserDigimon()
+            {
+                // TODO: Create a view-viewmodel-model setup.
+                DigimonType = UserDigimonDataObject.DigimonType,
 
-            // TODO: This does not work and has to be fixed. Maybe skip the temp solution and just fix it straight away.
-            UserDigimon.DigimonType = UserDigimonDataObject.DigimonType;
-
-            UserDigimon.Stats.DigimonCombatStats = UserDigimonDataObject.DigimonCombatStats;
-
-            UserDigimon.Stats.CareMistakes = UserDigimonDataObject.CareMistakes;
-
-            UserDigimon.Stats.Weight = UserDigimonDataObject.Weight;
-
-            UserDigimon.Stats.Tech = UserDigimonDataObject.Tech;
-
-            UserDigimon.Stats.Happiness = UserDigimonDataObject.Happiness;
-
-            UserDigimon.Stats.Discipline = UserDigimonDataObject.Discipline;
-
-            UserDigimon.Stats.Battles = UserDigimonDataObject.Battles;
-
+                Stats = new Stats()
+                {
+                    DigimonCombatStats = UserDigimonDataObject.DigimonCombatStats,
+                    CareMistakes = UserDigimonDataObject.CareMistakes,
+                    Weight = UserDigimonDataObject.Weight,
+                    Tech = UserDigimonDataObject.Tech,
+                    Happiness = UserDigimonDataObject.Happiness,
+                    Discipline = UserDigimonDataObject.Discipline,
+                    Battles = UserDigimonDataObject.Battles
+                }
+            };
+                
             SetEvoCriteriaReadOnlyDict();
         }
 
