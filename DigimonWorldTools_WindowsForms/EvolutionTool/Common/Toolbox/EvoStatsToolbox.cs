@@ -9,9 +9,9 @@ using System.Linq;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 {
-    public static class StatsToolbox
+    public static class EvoStatsToolbox
     {
-        public static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
+        private static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.

@@ -10,6 +10,19 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool
     public static class EvoToolbox
     {
         #region Compound methods
+        public static int AmtMainCriteriaMet(IEvoCriteria evoCriteria, UserDigimon userDigimon)
+        {
+            int amtMainCriteriaMet = 0;
+
+            if(EvoToolbox.IsCombatStatsCriteriaMet(evoCriteria.CombatStats, userDigimon.Stats.DigimonCombatStats)) { amtMainCriteriaMet++; }
+
+            if (EvoToolbox.IsWeightCriteriaMet(evoCriteria.Weight, userDigimon.Stats.Weight)) { amtMainCriteriaMet++; }
+
+            if (EvoToolbox.IsCareMistakeCriteriaMet(evoCriteria.CareMistakes, userDigimon.Stats.CareMistakes)) { amtMainCriteriaMet++; }
+
+            return amtMainCriteriaMet;
+        }
+
         public static bool IsAnyBonusCriteriaMet(IEvoCriteria evoCriteria, UserDigimon userDigimon)
         {
             Stats userDigimonStats = userDigimon.Stats;
@@ -31,42 +44,42 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool
         #region Elementary methods
         public static bool IsCombatStatsCriteriaMet(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
         {
-            return StatsToolbox.IsCombatStatsCriteriaMet(evoCriteriaCombatStats, combatStats);
+            return EvoStatsToolbox.IsCombatStatsCriteriaMet(evoCriteriaCombatStats, combatStats);
         }
 
         public static bool IsCareMistakeCriteriaMet(EvoCriteriaCareMistakes evoCriteriaCareMistakes, int careMistakes)
         {
-            return StatsToolbox.IsMinMaxCriteriaMet(evoCriteriaCareMistakes, careMistakes);
+            return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriteriaCareMistakes, careMistakes);
         }
 
         public static bool IsWeightCriteriaMet(EvoCriteriaWeight evoCriteriaWeight, int weight)
         {
-            return StatsToolbox.IsValueRangeCriteriaMet(evoCriteriaWeight, weight);
+            return EvoStatsToolbox.IsValueRangeCriteriaMet(evoCriteriaWeight, weight);
         }
 
         public static bool IsPrecursorCriteriaMet(DigimonType? precursorDigimon, DigimonType userDigimonDigimonType)
         {
-            return StatsToolbox.IsPrecursorCriteriaMet(precursorDigimon, userDigimonDigimonType);
+            return EvoStatsToolbox.IsPrecursorCriteriaMet(precursorDigimon, userDigimonDigimonType);
         }
 
         public static bool IsTechniqueCriteriaMet(EvoCriteriaTech evoCriteriaTech, int tech)
         {
-            return StatsToolbox.IsMinCriteriaMet(evoCriteriaTech, tech);
+            return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaTech, tech);
         }
 
         public static bool IsHappinessCriteria(EvoCriteriaHappiness evoCriteriaHappiness , int happiness)
         {
-            return StatsToolbox.IsMinCriteriaMet(evoCriteriaHappiness, happiness);
+            return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaHappiness, happiness);
         }
         
         public static bool IsDisciplineCriteriaMet(EvoCriteriaDiscipline evoCriteriaDiscipline, int discipline)
         {
-            return StatsToolbox.IsMinCriteriaMet(evoCriteriaDiscipline, discipline);
+            return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaDiscipline, discipline);
         }
 
         public static bool IsBattleCriteriaMet(EvoCriteriaBattles evoCriteriaBattles, int battles)
         {
-            return StatsToolbox.IsMinMaxCriteriaMet(evoCriteriaBattles, battles);
+            return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriteriaBattles, battles);
         }
         #endregion
     }

@@ -140,29 +140,16 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
 
             int CriteriaMetThresholdToContinue = CriteriaMetThresholdForEvo - MaxBonusCriteriaMetCount;
 
-            #region MainCriteriaCheckCalls
-            // If the combatstats criteria is met then up the counter.
-            if (EvoToolbox.IsCombatStatsCriteriaMet(EvoCriteria.CombatStats, UserDigimon.Stats.DigimonCombatStats)) { NrOfCriteriaMet++; }
+            NrOfCriteriaMet = EvoToolbox.AmtMainCriteriaMet(EvoCriteria, UserDigimon);
 
-            // If the caremistake criteria is met then up the counter.
-            if (EvoToolbox.IsCareMistakeCriteriaMet(EvoCriteria.CareMistakes, UserDigimon.Stats.CareMistakes)) { NrOfCriteriaMet++; }
-
-            // If the weight criteria is met then up the counter.
-            if (EvoToolbox.IsWeightCriteriaMet(EvoCriteria.Weight, UserDigimon.Stats.Weight)) { NrOfCriteriaMet++; }
-            #endregion
-
-            // Main criteria have been checked, check if enough criteria have been met already. 
-            // If true then there is no need to check the remainder of criteria so return true.
+            // Check if enough evolution criteria have been met to enable the evolution.
             if (NrOfCriteriaMet == CriteriaMetThresholdForEvo) { return true; }
 
-            // Check if at least the criteria met threshold has been reached.
-            // If false then there is no way enough criteria will be met after evaluating bonus criteria so return false.
+            // Check if too little criteria are met and evolution cannot be enabled even with a bonus criteria.
             if (NrOfCriteriaMet < CriteriaMetThresholdToContinue) { return false; }
 
-            // Less then 3 main criteria have been met so we check the bonus criteria.
-            if (EvoToolbox.IsAnyBonusCriteriaMet(EvoCriteria, UserDigimon)) { NrOfCriteriaMet++; }
-
-            return (NrOfCriteriaMet >= CriteriaMetThresholdForEvo);          
+            // Return the result directly as this is the check which can enable the evolution.
+            return EvoToolbox.IsAnyBonusCriteriaMet(EvoCriteria, UserDigimon);
         }
 
         private void FillEvoParametersEvoTarget(EvoParametersRookie evoParameters)
@@ -396,7 +383,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
         }
         #endregion
 
-        #region BonusCriteriaChecksMethodes
+       #region BonusCriteriaChecksMethodes
         private bool PreCursorCriteriaMet()
         {
             // Only check this bonus criteria if it is relevant.
@@ -434,6 +421,6 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
                 return (UserDigimon.Stats.Battles >= EvoCriteria.Battles.Value);
             }
         }
-        #endregion
+        #endregion*/
     }
 }
