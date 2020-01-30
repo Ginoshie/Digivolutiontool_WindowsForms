@@ -1,6 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
+using DigimonWorldTools_WindowsForms.EvoTool;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
@@ -8,11 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
-    public class EvoDeterminator
+    public class Determinator
     {
-        public EvoDeterminator(UserDigimonDataObject UserDigimonDataObject)
+        public Determinator(UserDigimonDataObject UserDigimonDataObject)
         {
             UserDigimon = new UserDigimon()
             {
@@ -66,7 +65,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
 
         private DigimonType DetermineEvoToRookieResult()
         {
-            EvoParametersRookie evoParameters = new EvoParametersRookie();
+            ParamsRookie evoParameters = new ParamsRookie();
 
             foreach (DigimonType evoTarget in GetEvoTargetsListOfUserDigimon())
             {
@@ -89,14 +88,14 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
 
         private DigimonType DetermineEvoToChampionOrUltimateResult()
         {
-            EvoParametersChampionAndUltimate evoParameters = new EvoParametersChampionAndUltimate();
+            ParamsChampionAndUltimate evoParameters = new ParamsChampionAndUltimate();
 
             foreach (DigimonType evoTarget in GetEvoTargetsListOfUserDigimon())
             {
                 SetEvolCriteriaOf(evoTarget);
 
                 // If the evolution is not enabled then we do not compare the evolution score against  the current highest evolution score.
-                if (!IsChampionOrUltimateEvoEnabled())
+                if (!Toolbox.IsChampionOrUltimateEvoEnabled(EvoCriteria, UserDigimon))
                 {
                     // Evolution is not enabled, continue with the next evolution target.
                     continue;
@@ -123,36 +122,14 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
             EvoCriteriaReadOnlyDict = ReadOnlyDictionaryFactory.CreateEvoCriteriaReadOnlyDictionary();
         }
 
-        private bool IsRookieEvoEnabled(EvoParametersRookie evoParameters)
+        private bool IsRookieEvoEnabled(ParamsRookie evoParameters)
         {
             int CriteriaMetThresholdForEvo = 3;
 
             return (evoParameters.EvoScore >= CriteriaMetThresholdForEvo);
         }
 
-        private bool IsChampionOrUltimateEvoEnabled()
-        {
-            int NrOfCriteriaMet = 0;
-
-            int CriteriaMetThresholdForEvo = 3;
-
-            int MaxBonusCriteriaMetCount = 1;
-
-            int CriteriaMetThresholdToContinue = CriteriaMetThresholdForEvo - MaxBonusCriteriaMetCount;
-
-            NrOfCriteriaMet = EvoToolbox.AmtMainCriteriaMet(EvoCriteria, UserDigimon);
-
-            // Check if enough evolution criteria have been met to enable the evolution.
-            if (NrOfCriteriaMet == CriteriaMetThresholdForEvo) { return true; }
-
-            // Check if too little criteria are met and evolution cannot be enabled even with a bonus criteria.
-            if (NrOfCriteriaMet < CriteriaMetThresholdToContinue) { return false; }
-
-            // Return the result directly as this is the check which can enable the evolution.
-            return EvoToolbox.IsAnyBonusCriteriaMet(EvoCriteria, UserDigimon);
-        }
-
-        private void FillEvoParametersEvoTarget(EvoParametersRookie evoParameters)
+        private void FillEvoParametersEvoTarget(ParamsRookie evoParameters)
         {
             evoParameters.EvoScore = 0;
 
@@ -165,7 +142,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
             if (PreCursorCriteriaMet()) { evoParameters.EvoScore++; }
         }
 
-        private void UpdateEvoParameters(EvoParametersRookie evoParameters)
+        private void UpdateEvoParameters(ParamsRookie evoParameters)
         {
             if(evoParameters.EvoScore > evoParameters.HighestEvoScore)
             {
@@ -175,7 +152,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
             }
         }
 
-        private void UpdateEvoParameters(EvoParametersChampionAndUltimate evoParameters)
+        private void UpdateEvoParameters(ParamsChampionAndUltimate evoParameters)
         {
             evoParameters.AmountCriteriaStats = DetermineAmountCriteriaStats();
 

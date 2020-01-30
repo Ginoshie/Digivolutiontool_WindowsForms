@@ -1,5 +1,6 @@
 ﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
 {
@@ -46,5 +47,33 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
         );
 
         public DigimonType? PrecursorDigimonType => DigimonType.Koromon;
+
+        public EvoCriteriaMain EvoCriteriaMain
+        {
+            get
+            {
+                return new EvoCriteriaMain()
+                {
+                    CombatStats = CombatStats,
+                    CareMistakes = CareMistakes,
+                    Weight = Weight
+                };
+            }
+        }
+
+        public EvoCriteriaBonus EvoCriteriaBonus
+        {
+            get
+            {
+                return new EvoCriteriaBonus()
+                {
+                    Happiness = Happiness,
+                    Discipline = Discipline,
+                    Battles = Battles,
+                    Tech = Tech,
+                    PrecursorDigimonType = PrecursorDigimonType
+                };
+            }
+        }
     }
 }

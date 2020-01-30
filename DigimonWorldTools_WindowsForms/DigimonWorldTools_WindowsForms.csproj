@@ -56,11 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaBonus.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaBattles.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaCareMistakes.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaCombatStats.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaDiscipline.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaHappiness.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaMain.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaTech.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaWeight.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStats.cs" />
@@ -73,21 +75,21 @@
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaTyrannomon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaCentarumon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaMonochromon.cs" />
-    <Compile Include="EvolutionTool\EvoParamsChampionAndUltimate.cs" />
-    <Compile Include="EvolutionTool\EvoParamsRookie.cs" />
+    <Compile Include="EvolutionTool\EvoDetermination\ParamsChampionAndUltimate.cs" />
+    <Compile Include="EvolutionTool\EvoDetermination\ParamsRookie.cs" />
     <Compile Include="EvolutionTool\Common\Factories\DictionaryFactory.cs" />
     <Compile Include="EvolutionTool\Common\Toolbox\EvoStatsToolbox.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\EvoStage.cs" />
     <Compile Include="EvolutionTool\Common\Factories\EvoTargetsListFactory.cs" />
     <Compile Include="EvolutionTool\Common\MessageboxTextMessages\MessageBoxWarningTextMessages.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStat.cs" />
-    <Compile Include="EvolutionTool\EvoToolbox.cs" />
+    <Compile Include="EvolutionTool\EvoDetermination\Toolbox.cs" />
     <Compile Include="EvolutionTool\UserDigimonDataObject.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaBirdramon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\Champion\EvoCriteriaGreymon.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\IEvoCriteriaDigimon.cs" />
-    <Compile Include="EvolutionTool\EvoDeterminationFlow.cs" />
-    <Compile Include="EvolutionTool\EvoDeterminator.cs" />
+    <Compile Include="EvolutionTool\EvoDetermination\DeterminationFlow.cs" />
+    <Compile Include="EvolutionTool\EvoDetermination\Determinator.cs" />
     <Compile Include="EvolutionTool\Common\Factories\ReadOnlyDictionaryFactory.cs" />
     <Compile Include="EvolutionTool\Common\Digimon\DigimonType.cs" />
     <Compile Include="EvolutionTool\Common\Stats\StatNames.cs" />

@@ -1,4 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
+using DigimonWorldTools_WindowsForms.EvoTool;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using System;
 using System.Windows.Forms;
@@ -113,7 +114,7 @@ namespace DigimonWorldTools_WindowsForms
         #region Events
         private void BtDigimonDigivolve_Click(object sender, EventArgs e)
         {
-            EvoDeterminationFlow.StartEvoDeterminiationFlow(this);
+            DeterminationFlow.StartEvoDeterminiationFlow(this);
         }
         #endregion
     }

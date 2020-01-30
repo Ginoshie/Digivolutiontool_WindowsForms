@@ -1,10 +1,10 @@
 ﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
-    public class EvoParametersChampionAndUltimate
+    public class ParamsChampionAndUltimate
     {
-        public EvoParametersChampionAndUltimate()
+        public ParamsChampionAndUltimate()
         {
             HighestPrioEvo = DigimonType.Numemon;
 

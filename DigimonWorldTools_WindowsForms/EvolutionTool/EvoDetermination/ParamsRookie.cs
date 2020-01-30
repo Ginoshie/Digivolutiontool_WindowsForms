@@ -1,8 +1,8 @@
 ﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
-    public class EvoParametersRookie
+    public class ParamsRookie
     {
         public int EvoScore;
 

@@ -1,43 +1,66 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
 using DigimonWorldTools_WindowsForms.EvoTool;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
-    public static class EvoToolbox
+    public static class Toolbox
     {
         #region Compound methods
-        public static int AmtMainCriteriaMet(IEvoCriteria evoCriteria, UserDigimon userDigimon)
+        public static bool IsChampionOrUltimateEvoEnabled(IEvoCriteria evoCriteria, UserDigimon userDigimon)
+        {
+            int NrOfCriteriaMet = 0;
+
+            int CriteriaMetThresholdForEvo = 3;
+
+            int MaxBonusCriteriaMetCount = 1;
+
+            int CriteriaMetThresholdToContinue = CriteriaMetThresholdForEvo - MaxBonusCriteriaMetCount;
+
+            NrOfCriteriaMet = AmtMainCriteriaMet(evoCriteria.EvoCriteriaMain, userDigimon);
+
+            // Check if enough evolution criteria have been met to enable the evolution.
+            if (NrOfCriteriaMet == CriteriaMetThresholdForEvo) { return true; }
+
+            // Check if too little criteria are met and evolution cannot be enabled even with a bonus criteria.
+            if (NrOfCriteriaMet < CriteriaMetThresholdToContinue) { return false; }
+
+            // Return the result directly as this is the check which can enable the evolution.
+            return IsAnyBonusCriteriaMet(evoCriteria.EvoCriteriaBonus, userDigimon);
+        }
+
+        public static int AmtMainCriteriaMet(EvoCriteriaMain mainEvoCriteria, UserDigimon userDigimon)
         {
             int amtMainCriteriaMet = 0;
 
-            if(EvoToolbox.IsCombatStatsCriteriaMet(evoCriteria.CombatStats, userDigimon.Stats.DigimonCombatStats)) { amtMainCriteriaMet++; }
+            if(IsCombatStatsCriteriaMet(mainEvoCriteria.CombatStats, userDigimon.Stats.DigimonCombatStats)) { amtMainCriteriaMet++; }
 
-            if (EvoToolbox.IsWeightCriteriaMet(evoCriteria.Weight, userDigimon.Stats.Weight)) { amtMainCriteriaMet++; }
+            if (IsWeightCriteriaMet(mainEvoCriteria.Weight, userDigimon.Stats.Weight)) { amtMainCriteriaMet++; }
 
-            if (EvoToolbox.IsCareMistakeCriteriaMet(evoCriteria.CareMistakes, userDigimon.Stats.CareMistakes)) { amtMainCriteriaMet++; }
+            if (IsCareMistakeCriteriaMet(mainEvoCriteria.CareMistakes, userDigimon.Stats.CareMistakes)) { amtMainCriteriaMet++; }
 
             return amtMainCriteriaMet;
         }
 
-        public static bool IsAnyBonusCriteriaMet(IEvoCriteria evoCriteria, UserDigimon userDigimon)
+        public static bool IsAnyBonusCriteriaMet(EvoCriteriaBonus evoCriteriaBonus, UserDigimon userDigimon)
         {
             Stats userDigimonStats = userDigimon.Stats;
 
             return
-                // Check Precursor digimontype criteria.
-                EvoToolbox.IsPrecursorCriteriaMet(evoCriteria.PrecursorDigimonType, userDigimon.DigimonType)
-                // Check Techniques criteria.
-                || EvoToolbox.IsTechniqueCriteriaMet(evoCriteria.Tech, userDigimonStats.Tech)
                 // Check Happiness criteria.
-                || EvoToolbox.IsHappinessCriteria(evoCriteria.Happiness, userDigimonStats.Happiness)
+                IsHappinessCriteria(evoCriteriaBonus.Happiness, userDigimonStats.Happiness)
                 // Check Discipline criteria.
-                || EvoToolbox.IsDisciplineCriteriaMet(evoCriteria.Discipline, userDigimonStats.Discipline)
+                || IsDisciplineCriteriaMet(evoCriteriaBonus.Discipline, userDigimonStats.Discipline)
                 // Check Battles criteria.
-                || EvoToolbox.IsBattleCriteriaMet(evoCriteria.Battles, userDigimonStats.Battles);
+                || IsBattleCriteriaMet(evoCriteriaBonus.Battles, userDigimonStats.Battles)
+                // Check Techniques criteria.
+                || IsTechniqueCriteriaMet(evoCriteriaBonus.Tech, userDigimonStats.Tech)
+                // Check Precursor digimontype criteria.
+                || IsPrecursorCriteriaMet(evoCriteriaBonus.PrecursorDigimonType, userDigimon.DigimonType);
         }
         #endregion
 

@@ -1,4 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
@@ -46,5 +47,33 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
         );
 
         public DigimonType? PrecursorDigimonType => null;
+
+        public EvoCriteriaMain EvoCriteriaMain
+        {
+            get
+            {
+                return new EvoCriteriaMain()
+                {
+                    CombatStats = CombatStats
+                    , CareMistakes = CareMistakes
+                    , Weight = Weight
+                };
+            }
+        }
+
+        public EvoCriteriaBonus EvoCriteriaBonus
+        {
+            get
+            {
+                return new EvoCriteriaBonus()
+                {
+                    Happiness = Happiness
+                    , Discipline = Discipline
+                    , Battles = Battles
+                    , Tech = Tech
+                    , PrecursorDigimonType = DigimonType
+                };
+            }
+        }
     }
 }

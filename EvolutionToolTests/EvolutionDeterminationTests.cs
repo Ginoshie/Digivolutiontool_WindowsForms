@@ -1,7 +1,7 @@
 ﻿using DigimonWorldTools_WindowsForms;
+using DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using NUnit.Framework;
-using DigimonWorldTools_WindowsForms.EvoTool;
 
 namespace EvoToolTests
 {
@@ -61,7 +61,7 @@ namespace EvoToolTests
             FillFormForGreymonEvo();
 
             // When
-            EvoDeterminationFlow.StartEvoDeterminiationFlow(evoDeterminationForm);
+            DeterminationFlow.StartEvoDeterminiationFlow(evoDeterminationForm);
 
             // Then
             Assert.That(evoDeterminationForm.EvoOutcome, Is.EqualTo(expectedEvoResult));

@@ -1,4 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
@@ -15,6 +16,8 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
         EvoCriteriaCareMistakes CareMistakes { get; }
 
         EvoCriteriaWeight Weight { get; }
+
+        EvoCriteriaMain EvoCriteriaMain { get; }
         #endregion
 
         #region Bonus Criteria
@@ -27,6 +30,8 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
         EvoCriteriaTech Tech { get; }
 
         DigimonType? PrecursorDigimonType { get; }
+
+        EvoCriteriaBonus EvoCriteriaBonus { get; }
         #endregion
     }
 }

@@ -1,12 +1,13 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
+﻿using DigimonWorldTools_WindowsForms.EvoTool;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
-    public static class EvoDeterminationFlow
+    public static class DeterminationFlow
     {
         public static void StartEvoDeterminiationFlow(EvoDeterminationForm evoDeterminatorForm)
         {
-            EvoDeterminator evoDeterminator = new EvoDeterminator(CreateFilledUserDigimonDataObject(evoDeterminatorForm));
+            Determinator evoDeterminator = new Determinator(CreateFilledUserDigimonDataObject(evoDeterminatorForm));
 
             evoDeterminatorForm.EvoOutcome = evoDeterminator.DetermineEvoResult();
         }
