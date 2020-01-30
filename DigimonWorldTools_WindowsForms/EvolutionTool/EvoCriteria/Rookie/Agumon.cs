@@ -1,21 +1,21 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
 {
-    class EvoCriteriaGabumon : IEvoCriteria
+    class Agumon : IEvoCriteria
     {
         public EvoStage EvoStage => EvoStage.Rookie;
 
-        public DigimonType DigimonType => DigimonType.Gabumon;
+        public DigimonType DigimonType => DigimonType.Agumon;
 
         public EvoCriteriaCombatStats CombatStats { get; } = new EvoCriteriaCombatStats(
-            hp: 0
-            , mp: 0
-            , off: 0
-            , def: 1
-            , speed: 0
+            hp: 10
+            , mp: 10
+            , off: 1
+            , def: 0
+            ,speed: 0
             , brains: 0
         );
 
@@ -38,7 +38,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
         );
 
         public EvoCriteriaBattles Battles { get; } = new EvoCriteriaBattles(
-            amtBattles: -2
+            amtBattles: 0
             , isMax: false
         );
 
@@ -71,7 +71,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
                     Discipline = Discipline,
                     Battles = Battles,
                     Tech = Tech,
-                    PrecursorDigimonType = DigimonType
+                    PrecursorDigimonType = PrecursorDigimonType
                 };
             }
         }

@@ -4,7 +4,7 @@ using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
 {
-    public class EvoMonochromon : IEvoCriteria
+    public class Monochromon : IEvoCriteria
     {
         public EvoStage EvoStage => EvoStage.Champion;
 

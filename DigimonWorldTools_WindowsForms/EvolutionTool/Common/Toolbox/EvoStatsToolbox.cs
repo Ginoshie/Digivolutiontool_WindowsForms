@@ -100,6 +100,14 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 
         public static bool IsValueRangeCriteriaMet(IStatRangeCriteria valueRangeCriteria, int stat)
         {
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (valueRangeCriteria == null)
+            {
+                throw new ArgumentNullException(nameof(valueRangeCriteria));
+            }
+            #endregion
+
             int lowerBound = valueRangeCriteria.Value - valueRangeCriteria.MaxDeviationBoundsIncluded;
 
             int upperBound = valueRangeCriteria.Value + valueRangeCriteria.MaxDeviationBoundsIncluded;
@@ -109,6 +117,14 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 
         public static bool IsPrecursorCriteriaMet(DigimonType? precursorDigimonType, DigimonType userDigimonDigimonType)
         {
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (precursorDigimonType == null)
+            {
+                throw new ArgumentNullException(nameof(precursorDigimonType));
+            }
+            #endregion
+
             return (precursorDigimonType == null) ? false : (userDigimonDigimonType == precursorDigimonType);
         }
     }

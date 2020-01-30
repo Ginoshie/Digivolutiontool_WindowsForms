@@ -1,6 +1,6 @@
 ﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.MessageboxTextMessages
 {
-    public static class MessageBoxWarningTextMessages
+    public static class Warnings
     {
         private static readonly string NummericOnly = "You may only enter numbers in the textbox labeled: \"{0}\". \n ";
 

@@ -4,32 +4,33 @@ using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
 {
-    public class EvoCriteriaBirdramon : IEvoCriteria
+    public class Tyrannomon: IEvoCriteria
     {
         public EvoStage EvoStage => EvoStage.Champion;
-
-        public DigimonType DigimonType => DigimonType.Birdramon;
+        
+        public DigimonType DigimonType => DigimonType.Tyrannomon;
 
         public EvoCriteriaCombatStats CombatStats { get; } = new EvoCriteriaCombatStats(
-            hp: 0
+            hp: 1000
             , mp: 0
             , off: 0
-            , def: 0
-            , speed: 100
+            , def: 100
+            , speed: 0
             , brains: 0
         );
 
         public EvoCriteriaCareMistakes CareMistakes { get; } = new EvoCriteriaCareMistakes(
-            amtCareMistakes: 3
-            , isMax: false
+            amtCareMistakes: 5
+            , isMax: true
         );
+
         public EvoCriteriaWeight Weight { get; } = new EvoCriteriaWeight(
-            amtWeight: 20
+            amtWeight: 30
             , amtMaxDeviation: 5
         );
 
         public EvoCriteriaHappiness Happiness { get; } = new EvoCriteriaHappiness(
-            amtHappiness: 0
+            amtHappiness:0
         );
 
         public EvoCriteriaDiscipline Discipline { get; } = new EvoCriteriaDiscipline(
@@ -37,12 +38,12 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
         );
 
         public EvoCriteriaBattles Battles { get; } = new EvoCriteriaBattles(
-            amtBattles: 0
-            , isMax: false
+            amtBattles: 5
+            , isMax: true
         );
 
         public EvoCriteriaTech Tech { get; } = new EvoCriteriaTech(
-            amtTech: 35
+            amtTech: 28
         );
 
         public DigimonType? PrecursorDigimonType => DigimonType.Biyomon;
