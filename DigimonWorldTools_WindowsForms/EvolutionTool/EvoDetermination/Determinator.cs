@@ -20,7 +20,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
                 Stats = new Stats()
                 {
-                    DigimonCombatStats = UserDigimonDataObject.DigimonCombatStats,
+                    CombatStats = UserDigimonDataObject.CombatStats,
                     CareMistakes = UserDigimonDataObject.CareMistakes,
                     Weight = UserDigimonDataObject.Weight,
                     Tech = UserDigimonDataObject.Tech,
@@ -154,7 +154,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
         private void UpdateEvoParameters(ParamsChampionAndUltimate evoParameters)
         {
-            evoParameters.AmountCriteriaStats = DetermineAmountCriteriaStats();
+            evoParameters.AmountCriteriaStats = Toolbox.CalcEvoScore(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats); ;
 
             evoParameters.CriteriaStatCount = DetermineCriteriaStatCount();
 
@@ -178,37 +178,37 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
         private bool IsStatCriteriaMet()
         {
             // When the stat is relevant and the criteria is not met, then the statCriteria as a whole is failed.
-            if (EvoCriteria.CombatStats.HP > 0 && UserDigimon.Stats.DigimonCombatStats.HP < EvoCriteria.CombatStats.HP)
+            if (EvoCriteria.CombatStats.HP > 0 && UserDigimon.Stats.CombatStats.HP < EvoCriteria.CombatStats.HP)
             {
                 return false;
             }
 
             // When the stat is relevant and the criteria is not met, then the statCriteria as a whole is failed.
-            if (EvoCriteria.CombatStats.MP > 0 && UserDigimon.Stats.DigimonCombatStats.MP < EvoCriteria.CombatStats.MP)
+            if (EvoCriteria.CombatStats.MP > 0 && UserDigimon.Stats.CombatStats.MP < EvoCriteria.CombatStats.MP)
             {
                 return false;
             }
 
             // When the stat is relevant and the criteria is not met, then the statCriteria as a whole is failed.
-            if (EvoCriteria.CombatStats.Off > 0 && UserDigimon.Stats.DigimonCombatStats.Off < EvoCriteria.CombatStats.Off)
+            if (EvoCriteria.CombatStats.Off > 0 && UserDigimon.Stats.CombatStats.Off < EvoCriteria.CombatStats.Off)
             {
                 return false;
             }
 
             // When the stat is relevant and the criteria is not met, then the statCriteria as a whole is failed.
-            if (EvoCriteria.CombatStats.Def > 0 && UserDigimon.Stats.DigimonCombatStats.Def < EvoCriteria.CombatStats.Def)
+            if (EvoCriteria.CombatStats.Def > 0 && UserDigimon.Stats.CombatStats.Def < EvoCriteria.CombatStats.Def)
             {
                 return false;
             }
 
             // When the stat is relevant and the criteria is not met, then the statCriteria as a whole is failed.
-            if (EvoCriteria.CombatStats.Speed > 0 && UserDigimon.Stats.DigimonCombatStats.Speed < EvoCriteria.CombatStats.Speed)
+            if (EvoCriteria.CombatStats.Speed > 0 && UserDigimon.Stats.CombatStats.Speed < EvoCriteria.CombatStats.Speed)
             {
                 return false;
             }
 
             // When the stat is relevant and the criteria is not met, then the statCriteria as a whole is failed.
-            if (EvoCriteria.CombatStats.Brains > 0 && UserDigimon.Stats.DigimonCombatStats.Brains < EvoCriteria.CombatStats.Brains)
+            if (EvoCriteria.CombatStats.Brains > 0 && UserDigimon.Stats.CombatStats.Brains < EvoCriteria.CombatStats.Brains)
             {
                 return false;
             }
@@ -223,44 +223,44 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
             string HighestStat = "";
 
-            if (EvoCriteria.CombatStats.HP > 0 && UserDigimon.Stats.DigimonCombatStats.HP > AmountHighestStat)
+            if (EvoCriteria.CombatStats.HP > 0 && UserDigimon.Stats.CombatStats.HP > AmountHighestStat)
             {
-                AmountHighestStat = UserDigimon.Stats.DigimonCombatStats.HP;
+                AmountHighestStat = UserDigimon.Stats.CombatStats.HP;
 
                 HighestStat = "HP";
             }
 
-            if (EvoCriteria.CombatStats.MP > 0 && UserDigimon.Stats.DigimonCombatStats.MP > AmountHighestStat)
+            if (EvoCriteria.CombatStats.MP > 0 && UserDigimon.Stats.CombatStats.MP > AmountHighestStat)
             {
-                AmountHighestStat = UserDigimon.Stats.DigimonCombatStats.MP;
+                AmountHighestStat = UserDigimon.Stats.CombatStats.MP;
 
                 HighestStat = "MP";
             }
 
-            if (EvoCriteria.CombatStats.Off > 0 && UserDigimon.Stats.DigimonCombatStats.Off > AmountHighestStat)
+            if (EvoCriteria.CombatStats.Off > 0 && UserDigimon.Stats.CombatStats.Off > AmountHighestStat)
             {
-                AmountHighestStat = UserDigimon.Stats.DigimonCombatStats.Off;
+                AmountHighestStat = UserDigimon.Stats.CombatStats.Off;
 
                 HighestStat = "Off";
             }
 
-            if (EvoCriteria.CombatStats.Def > 0 && UserDigimon.Stats.DigimonCombatStats.Def > AmountHighestStat)
+            if (EvoCriteria.CombatStats.Def > 0 && UserDigimon.Stats.CombatStats.Def > AmountHighestStat)
             {
-                AmountHighestStat = UserDigimon.Stats.DigimonCombatStats.Def;
+                AmountHighestStat = UserDigimon.Stats.CombatStats.Def;
 
                 HighestStat = "Def";
             }
 
-            if (EvoCriteria.CombatStats.Speed > 0 && UserDigimon.Stats.DigimonCombatStats.Speed > AmountHighestStat)
+            if (EvoCriteria.CombatStats.Speed > 0 && UserDigimon.Stats.CombatStats.Speed > AmountHighestStat)
             {
-                AmountHighestStat = UserDigimon.Stats.DigimonCombatStats.Speed;
+                AmountHighestStat = UserDigimon.Stats.CombatStats.Speed;
 
                 HighestStat = "Speed";
             }
 
-            if (EvoCriteria.CombatStats.Brains > 0 && UserDigimon.Stats.DigimonCombatStats.Brains > AmountHighestStat)
+            if (EvoCriteria.CombatStats.Brains > 0 && UserDigimon.Stats.CombatStats.Brains > AmountHighestStat)
             {
-                AmountHighestStat = UserDigimon.Stats.DigimonCombatStats.Brains;
+                AmountHighestStat = UserDigimon.Stats.CombatStats.Brains;
 
                 HighestStat = "Brains";
             }
@@ -312,31 +312,6 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             }
 
             return false;
-        }
-
-        private int DetermineAmountCriteriaStats()
-        {
-            int AmountStats = 0;
-
-            // Only add the userdigimons stats if the stat is part of the stat criteria.
-            if (EvoCriteria.CombatStats.HP > 0) { AmountStats += (UserDigimon.Stats.DigimonCombatStats.HP / 10); };
-
-            // Only add the userdigimons stats if the stat is part of the stat criteria.
-            if (EvoCriteria.CombatStats.MP > 0) { AmountStats += (UserDigimon.Stats.DigimonCombatStats.MP / 10); };
-
-            // Only add the userdigimons stats if the stat is part of the stat criteria.
-            if (EvoCriteria.CombatStats.Off > 0) { AmountStats += UserDigimon.Stats.DigimonCombatStats.Off; };
-
-            // Only add the userdigimons stats if the stat is part of the stat criteria.
-            if (EvoCriteria.CombatStats.Def > 0) { AmountStats += UserDigimon.Stats.DigimonCombatStats.Def; };
-
-            // Only add the userdigimons stats if the stat is part of the stat criteria.
-            if (EvoCriteria.CombatStats.Speed > 0) { AmountStats += UserDigimon.Stats.DigimonCombatStats.Speed; };
-
-            // Only add the userdigimons stats if the stat is part of the stat criteria.
-            if (EvoCriteria.CombatStats.Brains > 0) { AmountStats += UserDigimon.Stats.DigimonCombatStats.Brains; };
-
-            return AmountStats;
         }
 
         private int DetermineCriteriaStatCount()

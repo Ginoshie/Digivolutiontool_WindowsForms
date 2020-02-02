@@ -11,6 +11,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 {
     public static class EvoStatsToolbox
     {
+        #region CriteriaMethods
         private static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
         {
             #region Error handling
@@ -61,15 +62,10 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 
             Dictionary<CombatStat, int> digimonCombatStatsDict = DictionaryFactory.GetCombatStatsDict(combatStats, false);
 
-            bool isCombatStatCriteriaMet = true;
-
-            // List only the stats that are relevant according to the EvoCriteria
-            evoCriteriaCombatStatsDict.Where(statCriteria => statCriteria.Value > 0)
-                .ToList()
-                .ForEach(statCriteria => { if (statCriteria.Value > digimonCombatStatsDict[statCriteria.Key])
-                    { isCombatStatCriteriaMet = false; } });
-
-            return isCombatStatCriteriaMet;
+            var evoCriteriaKvps = evoCriteriaCombatStatsDict.Where(statCriteria => statCriteria.Value > 0);
+            
+            // If all evo criteria are met return true, otherwise return false.
+            return evoCriteriaKvps.All(evoCriteriaKvp => digimonCombatStatsDict[evoCriteriaKvp.Key] >= evoCriteriaKvp.Value);
         }
 
         public static bool IsMinMaxCriteriaMet(IMinMaxCritieria minMaxCriteria, int stat)
@@ -127,5 +123,20 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 
             return (precursorDigimonType == null) ? false : (userDigimonDigimonType == precursorDigimonType);
         }
+        #endregion
+
+        #region calculationMethods
+        public static int CalcEvoScore(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        {
+            Dictionary<CombatStat, int> evoCriteriaDict = DictionaryFactory.GetEvoCriteriaCombatStatsDict(evoCriteriaCombatStats);
+
+            Dictionary<CombatStat, int> CombatStatsDict = DictionaryFactory.GetCombatStatsDict(combatStats, true);
+
+            var evoCriteriakvps = evoCriteriaDict.Where(evoCriteriaKvp => evoCriteriaKvp.Value > 0)
+                .Select(evoCriteriaKvp => evoCriteriaKvp.Key);
+
+            return evoCriteriakvps.Select(key => CombatStatsDict[key]).Sum();
+        }
+        #endregion
     }
 }

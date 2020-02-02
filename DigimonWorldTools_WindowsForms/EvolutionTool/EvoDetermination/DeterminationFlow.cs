@@ -27,7 +27,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             return new UserDigimonDataObject()
             {
                 DigimonType = form1.CurrentDigimonType
-                , DigimonCombatStats = digimonCombatStats
+                , CombatStats = digimonCombatStats
                 , CareMistakes = form1.Caremistakes
                 , Weight = form1.Weight
                 , Happiness = form1.Happiness

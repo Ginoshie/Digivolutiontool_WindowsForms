@@ -66,7 +66,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
             int amtMainCriteriaMet = 0;
 
-            if(IsCombatStatsCriteriaMet(mainEvoCriteria.CombatStats, userDigimon.Stats.DigimonCombatStats)) { amtMainCriteriaMet++; }
+            if (IsCombatStatsCriteriaMet(mainEvoCriteria.CombatStats, userDigimon.Stats.CombatStats)) { amtMainCriteriaMet++; }
 
             if (IsWeightCriteriaMet(mainEvoCriteria.Weight, userDigimon.Stats.Weight)) { amtMainCriteriaMet++; }
 
@@ -179,7 +179,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaTech, tech);
         }
 
-        public static bool IsHappinessCriteria(EvoCriteriaHappiness evoCriteriaHappiness , int happiness)
+        public static bool IsHappinessCriteria(EvoCriteriaHappiness evoCriteriaHappiness, int happiness)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -191,7 +191,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
             return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaHappiness, happiness);
         }
-        
+
         public static bool IsDisciplineCriteriaMet(EvoCriteriaDiscipline evoCriteriaDiscipline, int discipline)
         {
             #region Error handling
@@ -216,6 +216,11 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             #endregion
 
             return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriteriaBattles, battles);
+        }
+
+        public static int CalcEvoScore(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        {
+            return EvoStatsToolbox.CalcEvoScore(evoCriteriaCombatStats, combatStats);
         }
         #endregion
     }
