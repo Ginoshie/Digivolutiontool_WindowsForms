@@ -57,16 +57,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaBonus.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaBattles.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaCareMistakes.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaCombatStats.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaDiscipline.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaHappiness.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionBattles.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionCareMistakes.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionCombatStats.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionDiscipline.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionHappiness.cs" />
     <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaMain.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaTech.cs" />
-    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriteriaWeight.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionTech.cs" />
+    <Compile Include="EvolutionTool\Common\EvoCriteria\EvoCriterionWeight.cs" />
+    <Compile Include="EvolutionTool\Common\Stats\BonusCritiaStats.cs" />
     <Compile Include="EvolutionTool\Common\Stats\CombatStats.cs" />
+    <Compile Include="EvolutionTool\Common\Stats\MainCriteriaStats.cs" />
     <Compile Include="EvolutionTool\Common\Stats\Stats.cs" />
+    <Compile Include="EvolutionTool\Common\Toolbox\DigimonToolbox.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\IMinCriteria.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\IMinMaxCritieria.cs" />
     <Compile Include="EvolutionTool\EvoCriteria\IStatRangeCriteria.cs" />

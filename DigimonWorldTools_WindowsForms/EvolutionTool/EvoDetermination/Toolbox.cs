@@ -1,4 +1,5 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
 using DigimonWorldTools_WindowsForms.EvoTool;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
@@ -36,7 +37,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
             int CriteriaMetThresholdToContinue = CriteriaMetThresholdForEvo - MaxBonusCriteriaMetCount;
 
-            NrOfCriteriaMet = AmtMainCriteriaMet(evoCriteria.EvoCriteriaMain, userDigimon);
+            NrOfCriteriaMet = AmtMainCriteriaMet(evoCriteria.EvoCriteriaMain, userDigimon.MainCritiaStats);
 
             // Check if enough evolution criteria have been met to enable the evolution.
             if (NrOfCriteriaMet == CriteriaMetThresholdForEvo) { return true; }
@@ -45,10 +46,10 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             if (NrOfCriteriaMet < CriteriaMetThresholdToContinue) { return false; }
 
             // Return the result directly as this is the check which can enable the evolution.
-            return IsAnyBonusCriteriaMet(evoCriteria.EvoCriteriaBonus, userDigimon);
+            return IsAnyBonusCriterionMet(evoCriteria.EvoCriteriaBonus, userDigimon.BonusCritiaStats);
         }
 
-        public static int AmtMainCriteriaMet(EvoCriteriaMain mainEvoCriteria, UserDigimon userDigimon)
+        public static int AmtMainCriteriaMet(EvoCriteriaMain mainEvoCriteria, MainCriteriaStats mainCriteriaStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -58,24 +59,24 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             }
 
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (userDigimon == null)
+            if (mainCriteriaStats == null)
             {
-                throw new ArgumentNullException(nameof(userDigimon));
+                throw new ArgumentNullException(nameof(mainCriteriaStats));
             }
             #endregion
 
             int amtMainCriteriaMet = 0;
 
-            if (IsCombatStatsCriteriaMet(mainEvoCriteria.CombatStats, userDigimon.Stats.CombatStats)) { amtMainCriteriaMet++; }
+            if (IsCombatStatsCriterionMet(mainEvoCriteria.CombatStats, mainCriteriaStats.CombatStats)) { amtMainCriteriaMet++; }
 
-            if (IsWeightCriteriaMet(mainEvoCriteria.Weight, userDigimon.Stats.Weight)) { amtMainCriteriaMet++; }
+            if (IsWeightCriterionMet(mainEvoCriteria.Weight, mainCriteriaStats.Weight)) { amtMainCriteriaMet++; }
 
-            if (IsCareMistakeCriteriaMet(mainEvoCriteria.CareMistakes, userDigimon.Stats.CareMistakes)) { amtMainCriteriaMet++; }
+            if (IsCareMistakeCriterionMet(mainEvoCriteria.CareMistakes, mainCriteriaStats.CareMistakes)) { amtMainCriteriaMet++; }
 
             return amtMainCriteriaMet;
         }
 
-        public static bool IsAnyBonusCriteriaMet(EvoCriteriaBonus evoCriteriaBonus, UserDigimon userDigimon)
+        public static bool IsAnyBonusCriterionMet(EvoCriteriaBonus evoCriteriaBonus, BonusCritiaStats BonusCriteriaStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -85,36 +86,57 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             }
 
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (userDigimon == null)
+            if (BonusCriteriaStats == null)
             {
-                throw new ArgumentNullException(nameof(userDigimon));
+                throw new ArgumentNullException(nameof(BonusCriteriaStats));
             }
             #endregion
 
-            Stats userDigimonStats = userDigimon.Stats;
+            BonusCritiaStats bonusCriteriaStats = BonusCriteriaStats;
 
             return
                 // Check Happiness criteria.
-                IsHappinessCriteria(evoCriteriaBonus.Happiness, userDigimonStats.Happiness)
+                IsHappinessCriteronMet(evoCriteriaBonus.Happiness, bonusCriteriaStats.Happiness)
                 // Check Discipline criteria.
-                || IsDisciplineCriteriaMet(evoCriteriaBonus.Discipline, userDigimonStats.Discipline)
+                || IsDisciplineCriterionMet(evoCriteriaBonus.Discipline, bonusCriteriaStats.Discipline)
                 // Check Battles criteria.
-                || IsBattleCriteriaMet(evoCriteriaBonus.Battles, userDigimonStats.Battles)
+                || IsBattleCriterionMet(evoCriteriaBonus.Battles, bonusCriteriaStats.Battles)
                 // Check Techniques criteria.
-                || IsTechniqueCriteriaMet(evoCriteriaBonus.Tech, userDigimonStats.Tech)
+                || IsTechniqueCriterionMet(evoCriteriaBonus.Tech, bonusCriteriaStats.Tech)
                 // Check Precursor digimontype criteria.
-                || IsPrecursorCriteriaMet(evoCriteriaBonus.PrecursorDigimonType, userDigimon.DigimonType);
+                || IsPrecursorCriterionMet(evoCriteriaBonus.PrecursorDigimonType, BonusCriteriaStats.DigimonType);
+        }
+
+        public static bool IsHighestCombatStatACriterion(EvoCriterionCombatStats evoCriterionCombatStats, CombatStats userDigimonCombatStats)
+        {
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (evoCriterionCombatStats == null)
+            {
+                throw new ArgumentNullException(nameof(evoCriterionCombatStats));
+            }
+
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (userDigimonCombatStats == null)
+            {
+                throw new ArgumentNullException(nameof(userDigimonCombatStats));
+            }
+            #endregion
+
+            CombatStat HighestCombatStat = EvoStatsToolbox.GetHighestCombatStatKey(userDigimonCombatStats);
+
+            return EvoStatsToolbox.IsCombatStatPartOfCriteria(evoCriterionCombatStats, HighestCombatStat);
         }
         #endregion
 
         #region Elementary methods
-        public static bool IsCombatStatsCriteriaMet(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        public static bool IsCombatStatsCriterionMet(EvoCriterionCombatStats evoCriterionCombatStats, CombatStats combatStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaCombatStats == null)
+            if (evoCriterionCombatStats == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaCombatStats));
+                throw new ArgumentNullException(nameof(evoCriterionCombatStats));
             }
 
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -124,103 +146,116 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             }
             #endregion
 
-            return EvoStatsToolbox.IsCombatStatsCriteriaMet(evoCriteriaCombatStats, combatStats);
+            return EvoStatsToolbox.IsCombatStatsCriteriaMet(evoCriterionCombatStats, combatStats);
         }
 
-        public static bool IsCareMistakeCriteriaMet(EvoCriteriaCareMistakes evoCriteriaCareMistakes, int careMistakes)
+        public static bool IsCareMistakeCriterionMet(EvoCriterionCareMistakes evoCriterionCareMistakes, int careMistakes)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaCareMistakes == null)
+            if (evoCriterionCareMistakes == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaCareMistakes));
+                throw new ArgumentNullException(nameof(evoCriterionCareMistakes));
             }
             #endregion
 
-            return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriteriaCareMistakes, careMistakes);
+            return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriterionCareMistakes, careMistakes);
         }
 
-        public static bool IsWeightCriteriaMet(EvoCriteriaWeight evoCriteriaWeight, int weight)
+        public static bool IsWeightCriterionMet(EvoCriterionWeight evoCriterionWeight, int weight)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaWeight == null)
+            if (evoCriterionWeight == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaWeight));
+                throw new ArgumentNullException(nameof(evoCriterionWeight));
             }
             #endregion
 
-            return EvoStatsToolbox.IsValueRangeCriteriaMet(evoCriteriaWeight, weight);
+            return EvoStatsToolbox.IsValueRangeCriteriaMet(evoCriterionWeight, weight);
         }
 
-        public static bool IsPrecursorCriteriaMet(DigimonType? precursorDigimon, DigimonType userDigimonDigimonType)
+        public static bool IsPrecursorCriterionMet(DigimonType? precursorDigimonCriterion, DigimonType userDigimonDigimonType)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (precursorDigimon == null)
+            if (precursorDigimonCriterion == null)
             {
-                throw new ArgumentNullException(nameof(precursorDigimon));
+                throw new ArgumentNullException(nameof(precursorDigimonCriterion));
             }
             #endregion
 
-            return EvoStatsToolbox.IsPrecursorCriteriaMet(precursorDigimon, userDigimonDigimonType);
+            return EvoStatsToolbox.IsPrecursorCriteriaMet(precursorDigimonCriterion, userDigimonDigimonType);
         }
 
-        public static bool IsTechniqueCriteriaMet(EvoCriteriaTech evoCriteriaTech, int tech)
+        public static bool IsTechniqueCriterionMet(EvoCriterionTech evoCriterionTech, int tech)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaTech == null)
+            if (evoCriterionTech == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaTech));
+                throw new ArgumentNullException(nameof(evoCriterionTech));
             }
             #endregion
 
-            return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaTech, tech);
+            return EvoStatsToolbox.IsMinCriteriaMet(evoCriterionTech, tech);
         }
 
-        public static bool IsHappinessCriteria(EvoCriteriaHappiness evoCriteriaHappiness, int happiness)
+        public static bool IsHappinessCriteronMet(EvoCriterionHappiness evoCriterionHappiness, int happiness)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaHappiness == null)
+            if (evoCriterionHappiness == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaHappiness));
+                throw new ArgumentNullException(nameof(evoCriterionHappiness));
             }
             #endregion
 
-            return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaHappiness, happiness);
+            return EvoStatsToolbox.IsMinCriteriaMet(evoCriterionHappiness, happiness);
         }
 
-        public static bool IsDisciplineCriteriaMet(EvoCriteriaDiscipline evoCriteriaDiscipline, int discipline)
+        public static bool IsDisciplineCriterionMet(EvoCriterionDiscipline evoCriterionDiscipline, int discipline)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaDiscipline == null)
+            if (evoCriterionDiscipline == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaDiscipline));
+                throw new ArgumentNullException(nameof(evoCriterionDiscipline));
             }
             #endregion
 
-            return EvoStatsToolbox.IsMinCriteriaMet(evoCriteriaDiscipline, discipline);
+            return EvoStatsToolbox.IsMinCriteriaMet(evoCriterionDiscipline, discipline);
         }
 
-        public static bool IsBattleCriteriaMet(EvoCriteriaBattles evoCriteriaBattles, int battles)
+        public static bool IsBattleCriterionMet(EvoCriterionBattles evoCriterionBattles, int battles)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
-            if (evoCriteriaBattles == null)
+            if (evoCriterionBattles == null)
             {
-                throw new ArgumentNullException(nameof(evoCriteriaBattles));
+                throw new ArgumentNullException(nameof(evoCriterionBattles));
             }
             #endregion
 
-            return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriteriaBattles, battles);
+            return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriterionBattles, battles);
         }
 
-        public static int CalcEvoScore(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        public static int CalcEvoScore(EvoCriterionCombatStats evoCriterionCombatStats, CombatStats combatStats)
         {
-            return EvoStatsToolbox.CalcEvoScore(evoCriteriaCombatStats, combatStats);
+            return EvoStatsToolbox.CalcEvoScore(evoCriterionCombatStats, combatStats);
+        }
+
+        public static int CalcCombatStatsCriterionCount(EvoCriterionCombatStats evoCriterionCombatStats)
+        {
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (evoCriterionCombatStats == null)
+            {
+                throw new ArgumentNullException(nameof(evoCriterionCombatStats));
+            }
+            #endregion
+
+            return EvoStatsToolbox.CalcCombatStatsCriteriaCount(evoCriterionCombatStats);
         }
         #endregion
     }

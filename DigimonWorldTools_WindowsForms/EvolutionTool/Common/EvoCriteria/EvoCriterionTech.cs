@@ -2,9 +2,9 @@
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaTech : IMinCriteria
+    public class EvoCriterionTech : IMinCriteria
     {
-        public EvoCriteriaTech(int amtTech)
+        public EvoCriterionTech(int amtTech)
         {
             Value = amtTech;
         }

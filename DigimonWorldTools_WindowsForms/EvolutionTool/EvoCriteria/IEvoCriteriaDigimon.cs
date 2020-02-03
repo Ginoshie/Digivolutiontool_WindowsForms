@@ -11,23 +11,23 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
         DigimonType DigimonType { get; }
 
         #region Main Criteria
-        EvoCriteriaCombatStats CombatStats { get; }
+        EvoCriterionCombatStats CombatStats { get; }
 
-        EvoCriteriaCareMistakes CareMistakes { get; }
+        EvoCriterionCareMistakes CareMistakes { get; }
 
-        EvoCriteriaWeight Weight { get; }
+        EvoCriterionWeight Weight { get; }
 
         EvoCriteriaMain EvoCriteriaMain { get; }
         #endregion
 
         #region Bonus Criteria
-        EvoCriteriaHappiness Happiness { get; }
+        EvoCriterionHappiness Happiness { get; }
 
-        EvoCriteriaDiscipline Discipline { get; }
+        EvoCriterionDiscipline Discipline { get; }
 
-        EvoCriteriaBattles Battles { get; }
+        EvoCriterionBattles Battles { get; }
 
-        EvoCriteriaTech Tech { get; }
+        EvoCriterionTech Tech { get; }
 
         DigimonType? PrecursorDigimonType { get; }
 

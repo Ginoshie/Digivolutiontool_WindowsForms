@@ -5,13 +5,13 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
 {
     public class EvoCriteriaBonus
     {
-        public EvoCriteriaHappiness Happiness { get; set; }
+        public EvoCriterionHappiness Happiness { get; set; }
 
-        public EvoCriteriaDiscipline Discipline { get; set; }
+        public EvoCriterionDiscipline Discipline { get; set; }
 
-        public EvoCriteriaBattles Battles { get; set; }
+        public EvoCriterionBattles Battles { get; set; }
 
-        public EvoCriteriaTech Tech { get; set; }
+        public EvoCriterionTech Tech { get; set; }
 
         public DigimonType? PrecursorDigimonType {get; set;}
     }

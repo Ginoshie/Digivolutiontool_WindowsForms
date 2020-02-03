@@ -20,7 +20,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories
             };
         }
 
-        public static Dictionary<CombatStat, int> GetEvoCriteriaCombatStatsDict(EvoCriteriaCombatStats evoCriteriaCombat)
+        public static Dictionary<CombatStat, int> GetEvoCriteriaCombatStatsDict(EvoCriterionCombatStats evoCriteriaCombat)
         {
             return new Dictionary<CombatStat, int>
             {

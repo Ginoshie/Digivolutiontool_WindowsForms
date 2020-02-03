@@ -10,7 +10,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
 
         public DigimonType DigimonType => DigimonType.Gabumon;
 
-        public EvoCriteriaCombatStats CombatStats { get; } = new EvoCriteriaCombatStats(
+        public EvoCriterionCombatStats CombatStats { get; } = new EvoCriterionCombatStats(
             hp: 0
             , mp: 0
             , off: 0
@@ -19,30 +19,30 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
             , brains: 0
         );
 
-        public EvoCriteriaCareMistakes CareMistakes { get; } = new EvoCriteriaCareMistakes(
+        public EvoCriterionCareMistakes CareMistakes { get; } = new EvoCriterionCareMistakes(
             amtCareMistakes: 0
             , isMax: false
         );
 
-        public EvoCriteriaWeight Weight { get; } = new EvoCriteriaWeight(
+        public EvoCriterionWeight Weight { get; } = new EvoCriterionWeight(
             amtWeight: 15
             , amtMaxDeviation: 5
         );
 
-        public EvoCriteriaHappiness Happiness { get; } = new EvoCriteriaHappiness(
+        public EvoCriterionHappiness Happiness { get; } = new EvoCriterionHappiness(
             amtHappiness: 0
         );
 
-        public EvoCriteriaDiscipline Discipline { get; } = new EvoCriteriaDiscipline(
+        public EvoCriterionDiscipline Discipline { get; } = new EvoCriterionDiscipline(
             amtDiscipline: 0
         );
 
-        public EvoCriteriaBattles Battles { get; } = new EvoCriteriaBattles(
+        public EvoCriterionBattles Battles { get; } = new EvoCriterionBattles(
             amtBattles: -2
             , isMax: false
         );
 
-        public EvoCriteriaTech Tech { get; } = new EvoCriteriaTech(
+        public EvoCriterionTech Tech { get; } = new EvoCriterionTech(
             amtTech: 0
         );
 

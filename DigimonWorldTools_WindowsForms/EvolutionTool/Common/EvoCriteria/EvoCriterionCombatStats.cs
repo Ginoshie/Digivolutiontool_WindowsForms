@@ -1,8 +1,8 @@
 ﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaCombatStats
+    public class EvoCriterionCombatStats
     {
-        public EvoCriteriaCombatStats(
+        public EvoCriterionCombatStats(
             int hp
             , int mp
             , int off

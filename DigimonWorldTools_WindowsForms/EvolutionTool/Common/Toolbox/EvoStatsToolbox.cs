@@ -12,7 +12,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
     public static class EvoStatsToolbox
     {
         #region CriteriaMethods
-        private static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
+        public static CombatStat GetHighestCombatStatKey(CombatStats combatStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -24,10 +24,12 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 
             Dictionary<CombatStat, int> digimonCombatStatsDict = DictionaryFactory.GetCombatStatsDict(combatStats, true);
 
-            return digimonCombatStatsDict.Max().Key;
+            int highestCombatStat = digimonCombatStatsDict.Values.Max();
+
+            return digimonCombatStatsDict.First((combatStatsKvp) => combatStatsKvp.Value == highestCombatStat).Key;
         }
 
-        public static bool IsStatPartOfCriteria(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStat combatStat)
+        public static bool IsCombatStatPartOfCriteria(EvoCriterionCombatStats evoCriteriaCombatStats, CombatStat combatStat)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -42,7 +44,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
             return (evoCriteriaCombatStatsDict[combatStat] > 0);
         }
     
-        public static bool IsCombatStatsCriteriaMet(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        public static bool IsCombatStatsCriteriaMet(EvoCriterionCombatStats evoCriteriaCombatStats, CombatStats combatStats)
         {
             #region Error handling
             // Error handling: Throw an exception explicitly stating the parameter that is null.
@@ -126,16 +128,45 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
         #endregion
 
         #region calculationMethods
-        public static int CalcEvoScore(EvoCriteriaCombatStats evoCriteriaCombatStats, CombatStats combatStats)
+        public static int CalcEvoScore(EvoCriterionCombatStats evoCriteriaCombatStats, CombatStats combatStats)
         {
-            Dictionary<CombatStat, int> evoCriteriaDict = DictionaryFactory.GetEvoCriteriaCombatStatsDict(evoCriteriaCombatStats);
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (evoCriteriaCombatStats == null)
+            {
+                throw new ArgumentNullException(nameof(evoCriteriaCombatStats));
+            }
+
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (combatStats == null)
+            {
+                throw new ArgumentNullException(nameof(combatStats));
+            }
+            #endregion
+
+            Dictionary<CombatStat, int> evoCriteriaCombatStatsDict = DictionaryFactory.GetEvoCriteriaCombatStatsDict(evoCriteriaCombatStats);
 
             Dictionary<CombatStat, int> CombatStatsDict = DictionaryFactory.GetCombatStatsDict(combatStats, true);
 
-            var evoCriteriakvps = evoCriteriaDict.Where(evoCriteriaKvp => evoCriteriaKvp.Value > 0)
+            var evoCriteriakvps = evoCriteriaCombatStatsDict.Where(evoCriteriaKvp => evoCriteriaKvp.Value > 0)
                 .Select(evoCriteriaKvp => evoCriteriaKvp.Key);
 
             return evoCriteriakvps.Select(key => CombatStatsDict[key]).Sum();
+        }
+
+        public static int CalcCombatStatsCriteriaCount(EvoCriterionCombatStats evoCriteriaCombatStats)
+        {
+            #region Error handling
+            // Error handling: Throw an exception explicitly stating the parameter that is null.
+            if (evoCriteriaCombatStats == null)
+            {
+                throw new ArgumentNullException(nameof(evoCriteriaCombatStats));
+            }
+            #endregion
+
+            Dictionary<CombatStat, int> evoCriteriaCombatStatsDict = DictionaryFactory.GetEvoCriteriaCombatStatsDict(evoCriteriaCombatStats);
+
+            return evoCriteriaCombatStatsDict.Count(evoCriteriaCombatStatKvp => evoCriteriaCombatStatKvp.Value > 0);
         }
         #endregion
     }

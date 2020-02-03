@@ -2,17 +2,17 @@
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaCareMistakes : IMinMaxCritieria
+    public class EvoCriterionBattles : IMinMaxCritieria
     {
-        public EvoCriteriaCareMistakes(int amtCareMistakes, bool isMax)
+        public EvoCriterionBattles(int amtBattles, bool isMax)
         {
-            Value = amtCareMistakes;
+            Value = amtBattles;
 
             IsMax = isMax;
         }
 
         public int Value { get; }
 
-        public bool IsMax { get;  }
+        public bool IsMax { get; }
     }
 }

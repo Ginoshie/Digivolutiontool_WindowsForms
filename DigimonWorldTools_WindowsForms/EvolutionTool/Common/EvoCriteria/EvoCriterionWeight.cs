@@ -2,13 +2,13 @@
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaWeight : IStatRangeCriteria
+    public class EvoCriterionWeight : IStatRangeCriteria
     {
-        public EvoCriteriaWeight(int amtWeight, int amtMaxDeviation)
+        public EvoCriterionWeight(int amtWeight, int amtMaxDeviation)
         {
             Value = amtWeight;
 
-            amtMaxDeviation = MaxDeviationBoundsIncluded;
+            MaxDeviationBoundsIncluded = amtMaxDeviation;
         }
 
         public int Value { get; }

@@ -4,10 +4,10 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
 {
     public class EvoCriteriaMain
     {
-        public EvoCriteriaCombatStats CombatStats { get; set; }
+        public EvoCriterionCombatStats CombatStats { get; set; }
 
-        public EvoCriteriaCareMistakes CareMistakes { get; set; }
+        public EvoCriterionCareMistakes CareMistakes { get; set; }
 
-        public EvoCriteriaWeight Weight { get; set; }
+        public EvoCriterionWeight Weight { get; set; }
     }
 }

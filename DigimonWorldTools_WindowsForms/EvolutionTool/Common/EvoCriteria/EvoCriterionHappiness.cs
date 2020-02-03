@@ -2,11 +2,11 @@
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 {
-    public class EvoCriteriaDiscipline : IMinCriteria
+    public class EvoCriterionHappiness : IMinCriteria
     {
-        public EvoCriteriaDiscipline(int amtDiscipline)
+        public EvoCriterionHappiness(int amtHappiness)
         {
-            Value = amtDiscipline;
+            Value = amtHappiness;
         }
 
         public int Value { get; }
