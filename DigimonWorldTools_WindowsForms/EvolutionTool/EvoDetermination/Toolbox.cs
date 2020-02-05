@@ -239,7 +239,9 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
             return EvoStatsToolbox.IsMinMaxCriteriaMet(evoCriterionBattles, battles);
         }
+        #endregion
 
+        #region Calculation methods
         public static int CalcEvoScore(EvoCriterionCombatStats evoCriterionCombatStats, CombatStats combatStats)
         {
             return EvoStatsToolbox.CalcEvoScore(evoCriterionCombatStats, combatStats);
