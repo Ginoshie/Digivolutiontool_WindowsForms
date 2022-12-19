@@ -1,5 +1,4 @@
 ﻿using System;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms
 {

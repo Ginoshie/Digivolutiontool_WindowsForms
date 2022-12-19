@@ -1,5 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool
@@ -12,7 +12,8 @@ namespace DigimonWorldTools_WindowsForms.EvoTool
 
         public MainCriteriaStats MainCritiaStats
         {
-            get {
+            get
+            {
                 return new MainCriteriaStats
                 {
                     CombatStats = Stats.CombatStats,

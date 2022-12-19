@@ -3,6 +3,7 @@
     public class StatNames
     {
         #region Short names
+
         public readonly string HP_Short = "HP";
 
         public readonly string MP_Short = "MP";
@@ -26,9 +27,11 @@
         public readonly string Btl_Short = "Btl";
 
         public readonly string Tech_Short = "Tech";
+
         #endregion
 
         #region Long names
+
         public readonly string HP_Long = "Health Points";
 
         public readonly string MP_Long = "Mana Points";
@@ -52,9 +55,11 @@
         public readonly string Btl_Long = "Battles";
 
         public readonly string Tech_Long = "No. of Techniques";
+
         #endregion
 
         #region UI based names
+
         public readonly string HP_UI = "HP";
 
         public readonly string MP_UI = "MP";
@@ -78,6 +83,7 @@
         public readonly string Btl_UI = "Battles";
 
         public readonly string Tech_UI = "No. of Techniques";
+
         #endregion
     }
 }

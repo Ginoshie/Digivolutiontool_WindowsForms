@@ -2,11 +2,11 @@
 {
     public enum CombatStat
     {
-        HP
-        , MP
-        , Off
-        , Def
-        , Speed
-        , Brains
+        HP,
+        MP,
+        Off,
+        Def,
+        Speed,
+        Brains
     }
 }

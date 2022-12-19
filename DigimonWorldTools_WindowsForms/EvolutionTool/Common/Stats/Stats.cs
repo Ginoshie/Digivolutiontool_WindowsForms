@@ -2,7 +2,7 @@
 {
     public class Stats
     {
-        public CombatStats CombatStats {get; set; }
+        public CombatStats CombatStats { get; set; }
 
         public int CareMistakes { get; set; }
 

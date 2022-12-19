@@ -1,13 +1,13 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
 {
-    public class Tyrannomon: IEvoCriteria
+    public class Tyrannomon : IEvoCriteria
     {
         public EvoStage EvoStage => EvoStage.Champion;
-        
+
         public DigimonType DigimonType => DigimonType.Tyrannomon;
 
         public EvoCriterionCombatStats CombatStats { get; } = new EvoCriterionCombatStats(
@@ -30,7 +30,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
         );
 
         public EvoCriterionHappiness Happiness { get; } = new EvoCriterionHappiness(
-            amtHappiness:0
+            amtHappiness: 0
         );
 
         public EvoCriterionDiscipline Discipline { get; } = new EvoCriterionDiscipline(

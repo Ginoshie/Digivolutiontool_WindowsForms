@@ -1,5 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
@@ -23,6 +23,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Champion
             amtCareMistakes: 3
             , isMax: false
         );
+
         public EvoCriterionWeight Weight { get; } = new EvoCriterionWeight(
             amtWeight: 20
             , amtMaxDeviation: 5

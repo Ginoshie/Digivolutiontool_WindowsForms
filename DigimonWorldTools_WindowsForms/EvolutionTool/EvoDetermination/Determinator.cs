@@ -1,11 +1,11 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
 using DigimonWorldTools_WindowsForms.EvoTool;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 using System;
 using System.Collections.ObjectModel;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
@@ -29,7 +29,7 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
                     Battles = UserDigimonDataObject.Battles
                 }
             };
-                
+
             SetEvoCriteriaReadOnlyDict();
         }
 
@@ -123,18 +123,30 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
         {
             evoParameters.EvoScore = 0;
 
-            if (Toolbox.IsHighestCombatStatACriterion(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats)) { evoParameters.EvoScore++; }
+            if (Toolbox.IsHighestCombatStatACriterion(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats))
+            {
+                evoParameters.EvoScore++;
+            }
 
-            if (Toolbox.IsCareMistakeCriterionMet(EvoCriteria.CareMistakes, UserDigimon.Stats.CareMistakes)) { evoParameters.EvoScore++; }
+            if (Toolbox.IsCareMistakeCriterionMet(EvoCriteria.CareMistakes, UserDigimon.Stats.CareMistakes))
+            {
+                evoParameters.EvoScore++;
+            }
 
-            if (Toolbox.IsWeightCriterionMet(EvoCriteria.Weight, UserDigimon.Stats.Weight)) { evoParameters.EvoScore++; }
+            if (Toolbox.IsWeightCriterionMet(EvoCriteria.Weight, UserDigimon.Stats.Weight))
+            {
+                evoParameters.EvoScore++;
+            }
 
-            if (Toolbox.IsAnyBonusCriterionMet(EvoCriteria.EvoCriteriaBonus, UserDigimon.BonusCritiaStats)) { evoParameters.EvoScore++; }
+            if (Toolbox.IsAnyBonusCriterionMet(EvoCriteria.EvoCriteriaBonus, UserDigimon.BonusCritiaStats))
+            {
+                evoParameters.EvoScore++;
+            }
         }
 
         private void UpdateEvoParameters(ParamsRookie evoParameters)
         {
-            if(evoParameters.EvoScore > evoParameters.HighestEvoScore)
+            if (evoParameters.EvoScore > evoParameters.HighestEvoScore)
             {
                 evoParameters.HighestEvoScore = evoParameters.EvoScore;
 
@@ -144,7 +156,9 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
         private void UpdateEvoParameters(ParamsChampionAndUltimate evoParameters)
         {
-            evoParameters.AmountCriteriaStats = Toolbox.CalcEvoScore(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats); ;
+            evoParameters.AmountCriteriaStats =
+                Toolbox.CalcEvoScore(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats);
+            ;
 
             evoParameters.CriteriaStatCount = Toolbox.CalcCombatStatsCriterionCount(EvoCriteria.CombatStats);
 
@@ -158,9 +172,10 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
             // Evolution has lower prio then stored evolution, store stat count and amount for next calculation.
             else
             {
-                evoParameters.CarriedOverAmountStats =  evoParameters.EvoScore;
+                evoParameters.CarriedOverAmountStats = evoParameters.EvoScore;
 
-                evoParameters.CarriedOverCriteriaStatCount = (evoParameters.CriteriaStatCount + evoParameters.CarriedOverCriteriaStatCount);
+                evoParameters.CarriedOverCriteriaStatCount =
+                    (evoParameters.CriteriaStatCount + evoParameters.CarriedOverCriteriaStatCount);
             }
         }
     }

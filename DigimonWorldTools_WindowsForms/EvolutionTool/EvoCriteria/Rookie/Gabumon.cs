@@ -1,5 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie

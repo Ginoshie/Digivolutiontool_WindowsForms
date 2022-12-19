@@ -1,6 +1,6 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using System.Collections.Generic;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
 {

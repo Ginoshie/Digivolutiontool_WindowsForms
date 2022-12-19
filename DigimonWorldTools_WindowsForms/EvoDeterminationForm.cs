@@ -1,8 +1,8 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
 using DigimonWorldTools_WindowsForms.EvoTool;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using System;
 using System.Windows.Forms;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms
 {
@@ -15,7 +15,9 @@ namespace DigimonWorldTools_WindowsForms
             CbCurrentDigimonType.DataSource = Enum.GetValues(typeof(DigimonType));
             CbTargetDigimon.DataSource = Enum.GetValues(typeof(DigimonType));
         }
+
         #region Form properties
+
         public DigimonType CurrentDigimonType
         {
             get { return (DigimonType)CbCurrentDigimonType.SelectedItem; }
@@ -109,13 +111,16 @@ namespace DigimonWorldTools_WindowsForms
             get { return (DigimonType)Enum.Parse(typeof(DigimonType), TbEvolutionOutcome.Text); }
             set { TbEvolutionOutcome.Text = value.ToString(); }
         }
+
         #endregion
 
         #region Events
+
         private void BtDigimonDigivolve_Click(object sender, EventArgs e)
         {
             DeterminationFlow.StartEvoDeterminiationFlow(this);
         }
+
         #endregion
     }
 }

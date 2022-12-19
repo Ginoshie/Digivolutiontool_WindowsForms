@@ -1,4 +1,4 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 {
@@ -25,7 +25,11 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
 
         public int EvoScore
         {
-            get { return (AmountCriteriaStats + CarriedOverAmountStats) / (CriteriaStatCount + CarriedOverCriteriaStatCount); }
+            get
+            {
+                return (AmountCriteriaStats + CarriedOverAmountStats) /
+                       (CriteriaStatCount + CarriedOverCriteriaStatCount);
+            }
         }
 
         public int AmountCriteriaStats { get; set; }

@@ -1,5 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories
 {
@@ -8,7 +8,8 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories
         static EvoTargetsListFactory()
         {
             KoromonEvo = new List<DigimonType>() { DigimonType.Agumon, DigimonType.Gabumon };
-            AgumonEvo = new List<DigimonType>() { DigimonType.Greymon, DigimonType.Centarumon, DigimonType.Monochromon, DigimonType.Tyrannomon };
+            AgumonEvo = new List<DigimonType>()
+                { DigimonType.Greymon, DigimonType.Centarumon, DigimonType.Monochromon, DigimonType.Tyrannomon };
         }
 
         public static List<DigimonType> KoromonEvo { get; }

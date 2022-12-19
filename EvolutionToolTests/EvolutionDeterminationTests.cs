@@ -1,6 +1,6 @@
 ﻿using DigimonWorldTools_WindowsForms;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
 using NUnit.Framework;
 
 namespace EvoToolTests

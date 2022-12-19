@@ -1,4 +1,4 @@
-﻿using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
@@ -13,6 +13,6 @@ namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria
 
         public EvoCriterionTech Tech { get; set; }
 
-        public DigimonType? PrecursorDigimonType {get; set;}
+        public DigimonType? PrecursorDigimonType { get; set; }
     }
 }

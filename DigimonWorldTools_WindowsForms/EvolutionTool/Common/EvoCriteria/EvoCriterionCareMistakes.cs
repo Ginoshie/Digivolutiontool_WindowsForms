@@ -13,6 +13,6 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
 
         public int Value { get; }
 
-        public bool IsMax { get;  }
+        public bool IsMax { get; }
     }
 }

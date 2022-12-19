@@ -1,5 +1,5 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.Digimon;
+﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
 namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
@@ -11,6 +11,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
         DigimonType DigimonType { get; }
 
         #region Main Criteria
+
         EvoCriterionCombatStats CombatStats { get; }
 
         EvoCriterionCareMistakes CareMistakes { get; }
@@ -18,9 +19,11 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
         EvoCriterionWeight Weight { get; }
 
         EvoCriteriaMain EvoCriteriaMain { get; }
+
         #endregion
 
         #region Bonus Criteria
+
         EvoCriterionHappiness Happiness { get; }
 
         EvoCriterionDiscipline Discipline { get; }
@@ -32,6 +35,7 @@ namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
         DigimonType? PrecursorDigimonType { get; }
 
         EvoCriteriaBonus EvoCriteriaBonus { get; }
+
         #endregion
     }
 }
