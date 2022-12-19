@@ -3,113 +3,112 @@ using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 using DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
 using NUnit.Framework;
 
-namespace EvoToolTests
+namespace EvoToolTests;
+
+[TestFixture]
+public class EvoDeterminationTests
 {
-    [TestFixture]
-    public class EvoDeterminationTests
+    [SetUp]
+    public void Setup()
     {
-        private EvoDeterminationForm evoDeterminationForm;
+        evoDeterminationForm = new EvoDeterminationForm();
+    }
 
-        [SetUp]
-        public void Setup()
+    [TearDown]
+    public void TearDown()
+    {
+        evoDeterminationForm = null;
+    }
+
+    private EvoDeterminationForm evoDeterminationForm;
+
+    private void FillFormForGreymonEvo()
+    {
+        evoDeterminationForm = new EvoDeterminationForm
         {
-            evoDeterminationForm = new EvoDeterminationForm();
-        }
+            CurrentDigimonType = DigimonType.Agumon,
 
-        [TearDown]
-        public void TearDown()
+            HP = 1600,
+
+            MP = 900,
+
+            Off = 160,
+
+            Def = 100,
+
+            Speed = 100,
+
+            Brains = 100,
+
+            CareMistakes = 3,
+
+            Weight = 30,
+
+            Happiness = 100,
+
+            Discipline = 100,
+
+            Battles = 0,
+
+            Techniques = 49
+        };
+    }
+
+    private void FillFormForAgumonEvo()
+    {
+        evoDeterminationForm = new EvoDeterminationForm
         {
-            evoDeterminationForm = null;
-        }
+            CurrentDigimonType = DigimonType.Koromon,
 
-        private void FillFormForGreymonEvo()
-        {
-            evoDeterminationForm = new EvoDeterminationForm
-            {
-                CurrentDigimonType = DigimonType.Agumon,
+            HP = 1300,
 
-                HP = 1600,
+            MP = 30,
 
-                MP = 900,
+            Off = 60,
 
-                Off = 160,
+            Def = 129,
 
-                Def = 100,
+            Speed = 129,
 
-                Speed = 100,
+            Brains = 129,
 
-                Brains = 100,
+            CareMistakes = 0,
 
-                Caremistakes = 3,
+            Weight = 1,
 
-                Weight = 30,
+            Happiness = -100,
 
-                Happiness = 100,
+            Discipline = -30,
 
-                Discipline = 100,
+            Battles = 10,
 
-                Battles = 0,
+            Techniques = 49
+        };
+    }
 
-                Techniques = 49
-            };
-        }
+    [TestCase(DigimonType.Greymon)]
+    public void AgumonIntoGreymonEvoFlow(DigimonType expectedEvoResult)
+    {
+        // Given
+        FillFormForGreymonEvo();
 
-        private void FillFormForAgumonEvo()
-        {
-            evoDeterminationForm = new EvoDeterminationForm
-            {
-                CurrentDigimonType = DigimonType.Koromon,
+        // When
+        DeterminationFlow.StartEvoDeterminationFlow(evoDeterminationForm);
 
-                HP = 1300,
+        // Then
+        Assert.That(evoDeterminationForm.EvoOutcome, Is.EqualTo(expectedEvoResult));
+    }
 
-                MP = 30,
+    [TestCase(DigimonType.Agumon)]
+    public void KoromonIntoAgumonEvoFlow(DigimonType expectedEvoResult)
+    {
+        // Given
+        FillFormForAgumonEvo();
 
-                Off = 60,
+        // When
+        DeterminationFlow.StartEvoDeterminationFlow(evoDeterminationForm);
 
-                Def = 129,
-
-                Speed = 129,
-
-                Brains = 129,
-
-                Caremistakes = 0,
-
-                Weight = 1,
-
-                Happiness = -100,
-
-                Discipline = -30,
-
-                Battles = 10,
-
-                Techniques = 49
-            };
-        }
-
-        [TestCase(DigimonType.Greymon)]
-        public void AgumonIntoGreymonEvoFlow(DigimonType expectedEvoResult)
-        {
-            // Given
-            FillFormForGreymonEvo();
-
-            // When
-            DeterminationFlow.StartEvoDeterminiationFlow(evoDeterminationForm);
-
-            // Then
-            Assert.That(evoDeterminationForm.EvoOutcome, Is.EqualTo(expectedEvoResult));
-        }
-
-        [TestCase(DigimonType.Agumon)]
-        public void KoromonIntoAgumonEvoFlow(DigimonType expectedEvoResult)
-        {
-            // Given
-            FillFormForAgumonEvo();
-
-            // When
-            DeterminationFlow.StartEvoDeterminiationFlow(evoDeterminationForm);
-
-            // Then
-            Assert.That(evoDeterminationForm.EvoOutcome, Is.EqualTo(expectedEvoResult));
-        }
+        // Then
+        Assert.That(evoDeterminationForm.EvoOutcome, Is.EqualTo(expectedEvoResult));
     }
 }

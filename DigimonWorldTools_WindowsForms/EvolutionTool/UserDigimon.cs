@@ -2,40 +2,29 @@
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool
+namespace DigimonWorldTools_WindowsForms.EvoTool;
+
+public class UserDigimon
 {
-    public class UserDigimon
-    {
-        public DigimonType DigimonType { get; set; }
+    public DigimonType DigimonType { get; set; }
 
-        public Stats Stats { get; set; }
+    public Stats Stats { get; set; }
 
-        public MainCriteriaStats MainCritiaStats
+    public MainCriteriaStats MainCritiaStats =>
+        new()
         {
-            get
-            {
-                return new MainCriteriaStats
-                {
-                    CombatStats = Stats.CombatStats,
-                    CareMistakes = Stats.CareMistakes,
-                    Weight = Stats.Weight
-                };
-            }
-        }
+            CombatStats = Stats.CombatStats,
+            CareMistakes = Stats.CareMistakes,
+            Weight = Stats.Weight
+        };
 
-        public BonusCritiaStats BonusCritiaStats
+    public BonusCritiaStats BonusCritiaStats =>
+        new()
         {
-            get
-            {
-                return new BonusCritiaStats
-                {
-                    Battles = Stats.Battles,
-                    Happiness = Stats.Happiness,
-                    Discipline = Stats.Discipline,
-                    Tech = Stats.Tech,
-                    DigimonType = DigimonType
-                };
-            }
-        }
-    }
+            Battles = Stats.Battles,
+            Happiness = Stats.Happiness,
+            Discipline = Stats.Discipline,
+            Tech = Stats.Tech,
+            DigimonType = DigimonType
+        };
 }

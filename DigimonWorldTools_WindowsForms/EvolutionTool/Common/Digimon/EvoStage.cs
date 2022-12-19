@@ -1,11 +1,10 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+
+public enum EvoStage
 {
-    public enum EvoStage
-    {
-        Baby,
-        InTraining,
-        Rookie,
-        Champion,
-        Ultimate
-    }
+    Baby,
+    InTraining,
+    Rookie,
+    Champion,
+    Ultimate
 }

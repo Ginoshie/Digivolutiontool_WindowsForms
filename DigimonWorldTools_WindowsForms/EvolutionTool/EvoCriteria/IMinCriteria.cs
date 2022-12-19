@@ -1,7 +1,6 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
+﻿namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
+
+public interface IMinCriteria
 {
-    public interface IMinCriteria
-    {
-        int Value { get; }
-    }
+    int Value { get; }
 }

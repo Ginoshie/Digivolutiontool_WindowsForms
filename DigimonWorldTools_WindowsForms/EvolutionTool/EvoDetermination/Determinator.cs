@@ -1,182 +1,168 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
+﻿using System;
+using System.Collections.ObjectModel;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
 using DigimonWorldTools_WindowsForms.EvoTool;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
 using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
-using System;
-using System.Collections.ObjectModel;
-using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
+
+public class Determinator
 {
-    public class Determinator
+    private ReadOnlyDictionary<DigimonType, Func<IEvoCriteria>> EvoCriteriaReadOnlyDict;
+
+    public Determinator(UserDigimonDataObject UserDigimonDataObject)
     {
-        public Determinator(UserDigimonDataObject UserDigimonDataObject)
+        UserDigimon = new UserDigimon
         {
-            UserDigimon = new UserDigimon()
+            // TODO: Create a view-viewmodel-model setup.
+            DigimonType = UserDigimonDataObject.DigimonType,
+
+            Stats = new Stats
             {
-                // TODO: Create a view-viewmodel-model setup.
-                DigimonType = UserDigimonDataObject.DigimonType,
+                CombatStats = UserDigimonDataObject.CombatStats,
+                CareMistakes = UserDigimonDataObject.CareMistakes,
+                Weight = UserDigimonDataObject.Weight,
+                Tech = UserDigimonDataObject.Tech,
+                Happiness = UserDigimonDataObject.Happiness,
+                Discipline = UserDigimonDataObject.Discipline,
+                Battles = UserDigimonDataObject.Battles
+            }
+        };
 
-                Stats = new Stats()
-                {
-                    CombatStats = UserDigimonDataObject.CombatStats,
-                    CareMistakes = UserDigimonDataObject.CareMistakes,
-                    Weight = UserDigimonDataObject.Weight,
-                    Tech = UserDigimonDataObject.Tech,
-                    Happiness = UserDigimonDataObject.Happiness,
-                    Discipline = UserDigimonDataObject.Discipline,
-                    Battles = UserDigimonDataObject.Battles
-                }
-            };
+        SetEvoCriteriaReadOnlyDict();
+    }
 
-            SetEvoCriteriaReadOnlyDict();
+    private UserDigimon UserDigimon { get; }
+
+    private IEvoCriteria EvoCriteria { get; set; }
+
+    public DigimonType DetermineEvoResult()
+    {
+        switch (DigimonToolbox.GetEvoStageUserDigimon(UserDigimon.DigimonType))
+        {
+            case EvoStage.Baby:
+                return DigimonType.Numemon;
+            case EvoStage.InTraining:
+                return DetermineEvoToRookieResult();
+            case EvoStage.Rookie:
+                return DetermineEvoToChampionOrUltimateResult();
+            case EvoStage.Champion:
+                return DigimonType.Numemon;
+            case EvoStage.Ultimate:
+                return DigimonType.Numemon;
+            default:
+                return DigimonType.Unknown;
+        }
+    }
+
+    private DigimonType DetermineEvoToRookieResult()
+    {
+        var evoParameters = new ParamsRookie();
+
+        foreach (var evoTarget in DigimonToolbox.GetEvoTargetsListOfUserDigimon(UserDigimon.DigimonType))
+        {
+            SetEvolCriteriaOf(evoTarget);
+
+            FillEvoParametersEvoTarget(evoParameters);
+
+            // If the evolution is not enabled then we do not compare the evolution score against  the current highest evolution score.
+            if (!IsRookieEvoEnabled(evoParameters))
+                // Evolution is not enabled, continue with the next evolution target.
+                continue;
+
+            UpdateEvoParameters(evoParameters);
         }
 
-        private UserDigimon UserDigimon { get; set; }
+        return evoParameters.HighestPrioEvo;
+    }
 
-        private IEvoCriteria EvoCriteria { get; set; }
+    private DigimonType DetermineEvoToChampionOrUltimateResult()
+    {
+        var evoParameters = new ParamsChampionAndUltimate();
 
-        private ReadOnlyDictionary<DigimonType, Func<IEvoCriteria>> EvoCriteriaReadOnlyDict;
-
-        public DigimonType DetermineEvoResult()
+        foreach (var evoTarget in DigimonToolbox.GetEvoTargetsListOfUserDigimon(UserDigimon.DigimonType))
         {
-            switch (DigimonToolbox.GetEvoStageUserDigimon(UserDigimon.DigimonType))
-            {
-                case EvoStage.Baby:
-                    return DigimonType.Numemon;
-                case EvoStage.InTraining:
-                    return DetermineEvoToRookieResult();
-                case EvoStage.Rookie:
-                    return DetermineEvoToChampionOrUltimateResult();
-                case EvoStage.Champion:
-                    return DigimonType.Numemon;
-                case EvoStage.Ultimate:
-                    return DigimonType.Numemon;
-                default:
-                    return DigimonType.Unknown;
-            }
+            SetEvolCriteriaOf(evoTarget);
+
+            // If the evolution is not enabled then we do not compare the evolution score against  the current highest evolution score.
+            if (!Toolbox.IsChampionOrUltimateEvoEnabled(EvoCriteria, UserDigimon))
+                // Evolution is not enabled, continue with the next evolution target.
+                continue;
+
+            UpdateEvoParameters(evoParameters);
         }
 
-        private DigimonType DetermineEvoToRookieResult()
+        return evoParameters.HighestPrioEvo;
+    }
+
+    private void SetEvolCriteriaOf(DigimonType evoTarget)
+    {
+        EvoCriteria = EvoCriteriaReadOnlyDict[evoTarget].Invoke();
+    }
+
+    private void SetEvoCriteriaReadOnlyDict()
+    {
+        EvoCriteriaReadOnlyDict = ReadOnlyDictionaryFactory.CreateEvoCriteriaReadOnlyDictionary();
+    }
+
+    private bool IsRookieEvoEnabled(ParamsRookie evoParameters)
+    {
+        var CriteriaMetThresholdForEvo = 3;
+
+        return evoParameters.EvoScore >= CriteriaMetThresholdForEvo;
+    }
+
+    private void FillEvoParametersEvoTarget(ParamsRookie evoParameters)
+    {
+        evoParameters.EvoScore = 0;
+
+        if (Toolbox.IsHighestCombatStatACriterion(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats))
+            evoParameters.EvoScore++;
+
+        if (Toolbox.IsCareMistakeCriterionMet(EvoCriteria.CareMistakes, UserDigimon.Stats.CareMistakes))
+            evoParameters.EvoScore++;
+
+        if (Toolbox.IsWeightCriterionMet(EvoCriteria.Weight, UserDigimon.Stats.Weight)) evoParameters.EvoScore++;
+
+        if (Toolbox.IsAnyBonusCriterionMet(EvoCriteria.EvoCriteriaBonus, UserDigimon.BonusCritiaStats))
+            evoParameters.EvoScore++;
+    }
+
+    private void UpdateEvoParameters(ParamsRookie evoParameters)
+    {
+        if (evoParameters.EvoScore > evoParameters.HighestEvoScore)
         {
-            ParamsRookie evoParameters = new ParamsRookie();
+            evoParameters.HighestEvoScore = evoParameters.EvoScore;
 
-            foreach (DigimonType evoTarget in DigimonToolbox.GetEvoTargetsListOfUserDigimon(UserDigimon.DigimonType))
-            {
-                SetEvolCriteriaOf(evoTarget);
-
-                FillEvoParametersEvoTarget(evoParameters);
-
-                // If the evolution is not enabled then we do not compare the evolution score against  the current highest evolution score.
-                if (!IsRookieEvoEnabled(evoParameters))
-                {
-                    // Evolution is not enabled, continue with the next evolution target.
-                    continue;
-                }
-
-                UpdateEvoParameters(evoParameters);
-            }
-
-            return evoParameters.HighestPrioEvo;
+            evoParameters.HighestPrioEvo = EvoCriteria.DigimonType;
         }
+    }
 
-        private DigimonType DetermineEvoToChampionOrUltimateResult()
+    private void UpdateEvoParameters(ParamsChampionAndUltimate evoParameters)
+    {
+        evoParameters.AmountCriteriaStats =
+            Toolbox.CalcEvoScore(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats);
+        ;
+
+        evoParameters.CriteriaStatCount = Toolbox.CalcCombatStatsCriterionCount(EvoCriteria.CombatStats);
+
+        // Evolution has higher prio then stored evolution so overwrite current evolution.
+        if (evoParameters.EvoScore > evoParameters.HighestEvoScore)
         {
-            ParamsChampionAndUltimate evoParameters = new ParamsChampionAndUltimate();
+            evoParameters.HighestEvoScore = evoParameters.EvoScore;
 
-            foreach (DigimonType evoTarget in DigimonToolbox.GetEvoTargetsListOfUserDigimon(UserDigimon.DigimonType))
-            {
-                SetEvolCriteriaOf(evoTarget);
-
-                // If the evolution is not enabled then we do not compare the evolution score against  the current highest evolution score.
-                if (!Toolbox.IsChampionOrUltimateEvoEnabled(EvoCriteria, UserDigimon))
-                {
-                    // Evolution is not enabled, continue with the next evolution target.
-                    continue;
-                }
-
-                UpdateEvoParameters(evoParameters);
-            }
-
-            return evoParameters.HighestPrioEvo;
+            evoParameters.HighestPrioEvo = EvoCriteria.DigimonType;
         }
-
-        private void SetEvolCriteriaOf(DigimonType evoTarget)
+        // Evolution has lower prio then stored evolution, store stat count and amount for next calculation.
+        else
         {
-            EvoCriteria = EvoCriteriaReadOnlyDict[evoTarget].Invoke();
-        }
+            evoParameters.CarriedOverAmountStats = evoParameters.EvoScore;
 
-        private void SetEvoCriteriaReadOnlyDict()
-        {
-            EvoCriteriaReadOnlyDict = ReadOnlyDictionaryFactory.CreateEvoCriteriaReadOnlyDictionary();
-        }
-
-        private bool IsRookieEvoEnabled(ParamsRookie evoParameters)
-        {
-            int CriteriaMetThresholdForEvo = 3;
-
-            return (evoParameters.EvoScore >= CriteriaMetThresholdForEvo);
-        }
-
-        private void FillEvoParametersEvoTarget(ParamsRookie evoParameters)
-        {
-            evoParameters.EvoScore = 0;
-
-            if (Toolbox.IsHighestCombatStatACriterion(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats))
-            {
-                evoParameters.EvoScore++;
-            }
-
-            if (Toolbox.IsCareMistakeCriterionMet(EvoCriteria.CareMistakes, UserDigimon.Stats.CareMistakes))
-            {
-                evoParameters.EvoScore++;
-            }
-
-            if (Toolbox.IsWeightCriterionMet(EvoCriteria.Weight, UserDigimon.Stats.Weight))
-            {
-                evoParameters.EvoScore++;
-            }
-
-            if (Toolbox.IsAnyBonusCriterionMet(EvoCriteria.EvoCriteriaBonus, UserDigimon.BonusCritiaStats))
-            {
-                evoParameters.EvoScore++;
-            }
-        }
-
-        private void UpdateEvoParameters(ParamsRookie evoParameters)
-        {
-            if (evoParameters.EvoScore > evoParameters.HighestEvoScore)
-            {
-                evoParameters.HighestEvoScore = evoParameters.EvoScore;
-
-                evoParameters.HighestPrioEvo = EvoCriteria.DigimonType;
-            }
-        }
-
-        private void UpdateEvoParameters(ParamsChampionAndUltimate evoParameters)
-        {
-            evoParameters.AmountCriteriaStats =
-                Toolbox.CalcEvoScore(EvoCriteria.CombatStats, UserDigimon.Stats.CombatStats);
-            ;
-
-            evoParameters.CriteriaStatCount = Toolbox.CalcCombatStatsCriterionCount(EvoCriteria.CombatStats);
-
-            // Evolution has higher prio then stored evolution so overwrite current evolution.
-            if (evoParameters.EvoScore > evoParameters.HighestEvoScore)
-            {
-                evoParameters.HighestEvoScore = evoParameters.EvoScore;
-
-                evoParameters.HighestPrioEvo = EvoCriteria.DigimonType;
-            }
-            // Evolution has lower prio then stored evolution, store stat count and amount for next calculation.
-            else
-            {
-                evoParameters.CarriedOverAmountStats = evoParameters.EvoScore;
-
-                evoParameters.CarriedOverCriteriaStatCount =
-                    (evoParameters.CriteriaStatCount + evoParameters.CarriedOverCriteriaStatCount);
-            }
+            evoParameters.CarriedOverCriteriaStatCount =
+                evoParameters.CriteriaStatCount + evoParameters.CarriedOverCriteriaStatCount;
         }
     }
 }

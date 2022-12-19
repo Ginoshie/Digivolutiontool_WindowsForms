@@ -1,79 +1,69 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
-using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
+using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria.Rookie
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoCriteria.Rookie;
+
+internal class Agumon : IEvoCriteria
 {
-    class Agumon : IEvoCriteria
-    {
-        public EvoStage EvoStage => EvoStage.Rookie;
+    public EvoStage EvoStage => EvoStage.Rookie;
 
-        public DigimonType DigimonType => DigimonType.Agumon;
+    public DigimonType DigimonType => DigimonType.Agumon;
 
-        public EvoCriterionCombatStats CombatStats { get; } = new EvoCriterionCombatStats(
-            hp: 10
-            , mp: 10
-            , off: 1
-            , def: 0
-            , speed: 0
-            , brains: 0
-        );
+    public EvoCriterionCombatStats CombatStats { get; } = new(
+        10,
+        10,
+        1,
+        0,
+        0,
+        0
+    );
 
-        public EvoCriterionCareMistakes CareMistakes { get; } = new EvoCriterionCareMistakes(
-            amtCareMistakes: 0
-            , isMax: false
-        );
+    public EvoCriterionCareMistakes CareMistakes { get; } = new(
+        0
+        , false
+    );
 
-        public EvoCriterionWeight Weight { get; } = new EvoCriterionWeight(
-            amtWeight: 15
-            , amtMaxDeviation: 5
-        );
+    public EvoCriterionWeight Weight { get; } = new(
+        15,
+        5
+    );
 
-        public EvoCriterionHappiness Happiness { get; } = new EvoCriterionHappiness(
-            amtHappiness: 0
-        );
+    public EvoCriterionHappiness Happiness { get; } = new(
+        0
+    );
 
-        public EvoCriterionDiscipline Discipline { get; } = new EvoCriterionDiscipline(
-            amtDiscipline: 0
-        );
+    public EvoCriterionDiscipline Discipline { get; } = new(
+        0
+    );
 
-        public EvoCriterionBattles Battles { get; } = new EvoCriterionBattles(
-            amtBattles: 0
-            , isMax: false
-        );
+    public EvoCriterionBattles Battles { get; } = new(
+        0
+        , false
+    );
 
-        public EvoCriterionTech Tech { get; } = new EvoCriterionTech(
-            amtTech: 0
-        );
+    public EvoCriterionTech Tech { get; } = new(
+        0
+    );
 
-        public DigimonType? PrecursorDigimonType => DigimonType.Koromon;
+    public DigimonType? PrecursorDigimonType => DigimonType.Koromon;
 
-        public EvoCriteriaMain EvoCriteriaMain
+    public EvoCriteriaMain EvoCriteriaMain =>
+        new()
         {
-            get
-            {
-                return new EvoCriteriaMain()
-                {
-                    CombatStats = CombatStats,
-                    CareMistakes = CareMistakes,
-                    Weight = Weight
-                };
-            }
-        }
+            CombatStats = CombatStats,
+            CareMistakes = CareMistakes,
+            Weight = Weight
+        };
 
-        public EvoCriteriaBonus EvoCriteriaBonus
+    public EvoCriteriaBonus EvoCriteriaBonus =>
+        new()
         {
-            get
-            {
-                return new EvoCriteriaBonus()
-                {
-                    Happiness = Happiness,
-                    Discipline = Discipline,
-                    Battles = Battles,
-                    Tech = Tech,
-                    PrecursorDigimonType = PrecursorDigimonType
-                };
-            }
-        }
-    }
+            Happiness = Happiness,
+            Discipline = Discipline,
+            Battles = Battles,
+            Tech = Tech,
+            PrecursorDigimonType = PrecursorDigimonType
+        };
 }

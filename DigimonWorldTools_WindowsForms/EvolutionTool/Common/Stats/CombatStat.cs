@@ -1,12 +1,11 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.Stats
+﻿namespace DigimonWorldTools_WindowsForms.EvoTool.Common.Stats;
+
+public enum CombatStat
 {
-    public enum CombatStat
-    {
-        HP,
-        MP,
-        Off,
-        Def,
-        Speed,
-        Brains
-    }
+    HP,
+    MP,
+    Off,
+    Def,
+    Speed,
+    Brains
 }

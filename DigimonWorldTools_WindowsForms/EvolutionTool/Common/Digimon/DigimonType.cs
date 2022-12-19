@@ -1,18 +1,17 @@
-﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon
+﻿namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+
+public enum DigimonType
 {
-    public enum DigimonType
-    {
-        Agumon,
-        Birdramon,
-        Biyomon,
-        Centarumon,
-        Gabumon,
-        Greymon,
-        Koromon,
-        Monochromon,
-        Numemon,
-        Palmon,
-        Tyrannomon,
-        Unknown
-    }
+    Agumon,
+    Birdramon,
+    Biyomon,
+    Centarumon,
+    Gabumon,
+    Greymon,
+    Koromon,
+    Monochromon,
+    Numemon,
+    Palmon,
+    Tyrannomon,
+    Unknown
 }

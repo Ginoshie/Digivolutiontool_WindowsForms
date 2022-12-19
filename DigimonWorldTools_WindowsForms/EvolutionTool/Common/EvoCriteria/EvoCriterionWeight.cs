@@ -1,18 +1,17 @@
 ﻿using DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria
+namespace DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
+
+public class EvoCriterionWeight : IStatRangeCriteria
 {
-    public class EvoCriterionWeight : IStatRangeCriteria
+    public EvoCriterionWeight(int amtWeight, int amtMaxDeviation)
     {
-        public EvoCriterionWeight(int amtWeight, int amtMaxDeviation)
-        {
-            Value = amtWeight;
+        Value = amtWeight;
 
-            MaxDeviationBoundsIncluded = amtMaxDeviation;
-        }
-
-        public int Value { get; }
-
-        public int MaxDeviationBoundsIncluded { get; }
+        MaxDeviationBoundsIncluded = amtMaxDeviation;
     }
+
+    public int Value { get; }
+
+    public int MaxDeviationBoundsIncluded { get; }
 }

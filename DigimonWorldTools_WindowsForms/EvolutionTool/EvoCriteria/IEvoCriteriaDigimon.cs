@@ -2,40 +2,39 @@
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.EvoCriteria;
 using DigimonWorldTools_WindowsForms.EvoTool.Common.EvoCriteria;
 
-namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria
+namespace DigimonWorldTools_WindowsForms.EvoTool.EvoCriteria;
+
+public interface IEvoCriteria
 {
-    public interface IEvoCriteria
-    {
-        EvoStage EvoStage { get; }
+    EvoStage EvoStage { get; }
 
-        DigimonType DigimonType { get; }
+    DigimonType DigimonType { get; }
 
-        #region Main Criteria
+    #region Main Criteria
 
-        EvoCriterionCombatStats CombatStats { get; }
+    EvoCriterionCombatStats CombatStats { get; }
 
-        EvoCriterionCareMistakes CareMistakes { get; }
+    EvoCriterionCareMistakes CareMistakes { get; }
 
-        EvoCriterionWeight Weight { get; }
+    EvoCriterionWeight Weight { get; }
 
-        EvoCriteriaMain EvoCriteriaMain { get; }
+    EvoCriteriaMain EvoCriteriaMain { get; }
 
-        #endregion
+    #endregion
 
-        #region Bonus Criteria
+    #region Bonus Criteria
 
-        EvoCriterionHappiness Happiness { get; }
+    EvoCriterionHappiness Happiness { get; }
 
-        EvoCriterionDiscipline Discipline { get; }
+    EvoCriterionDiscipline Discipline { get; }
 
-        EvoCriterionBattles Battles { get; }
+    EvoCriterionBattles Battles { get; }
 
-        EvoCriterionTech Tech { get; }
+    EvoCriterionTech Tech { get; }
 
-        DigimonType? PrecursorDigimonType { get; }
+    DigimonType? PrecursorDigimonType { get; }
 
-        EvoCriteriaBonus EvoCriteriaBonus { get; }
+    EvoCriteriaBonus EvoCriteriaBonus { get; }
 
-        #endregion
-    }
+    #endregion
 }

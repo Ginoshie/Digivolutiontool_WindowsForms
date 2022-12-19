@@ -1,13 +1,12 @@
 ﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.EvoDetermination;
+
+public class ParamsRookie
 {
-    public class ParamsRookie
-    {
-        public int EvoScore;
+    public int EvoScore;
 
-        public DigimonType HighestPrioEvo = DigimonType.Unknown;
+    public int HighestEvoScore = 0;
 
-        public int HighestEvoScore = 0;
-    }
+    public DigimonType HighestPrioEvo = DigimonType.Unknown;
 }

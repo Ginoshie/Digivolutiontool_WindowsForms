@@ -1,19 +1,18 @@
-﻿using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Digimon;
+using DigimonWorldTools_WindowsForms.EvolutionTool.Common.Factories;
 
-namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox
+namespace DigimonWorldTools_WindowsForms.EvolutionTool.Common.Toolbox;
+
+public static class DigimonToolbox
 {
-    public static class DigimonToolbox
+    public static EvoStage GetEvoStageUserDigimon(DigimonType userDigimonDigimonType)
     {
-        public static EvoStage GetEvoStageUserDigimon(DigimonType userDigimonDigimonType)
-        {
-            return ReadOnlyDictionaryFactory.CreateEvoStageReadOnlyDictionary()[userDigimonDigimonType];
-        }
+        return ReadOnlyDictionaryFactory.CreateEvoStageReadOnlyDictionary()[userDigimonDigimonType];
+    }
 
-        public static IList<DigimonType> GetEvoTargetsListOfUserDigimon(DigimonType userDigimonDigimonType)
-        {
-            return ReadOnlyDictionaryFactory.CreateEvoTargetsReadOnlyDictionary()[userDigimonDigimonType];
-        }
+    public static IList<DigimonType> GetEvoTargetsListOfUserDigimon(DigimonType userDigimonDigimonType)
+    {
+        return ReadOnlyDictionaryFactory.CreateEvoTargetsReadOnlyDictionary()[userDigimonDigimonType];
     }
 }
